@@ -1,6 +1,7 @@
 """Question 2 (10 marks): display/search products and provide cart links."""
 
 from flask import Blueprint, request, current_app
+from flask import url_for
 from db import get_connection
 from html_utils import escape_html, format_currency, html_page
 
@@ -19,22 +20,46 @@ def list_products():
 
     connection = None
     try:
-        # TODO (Q2): Open a connection with get_connection().
-        # TODO: Query product; if name is not blank, use productName LIKE ?.
-        #       Bind the search value as a parameter, e.g. f"%{name}%".
-        #       If name is blank, return all products.
-        # TODO: Display a table with product ID, name, and formatted price.
-        # TODO: Each product needs a link to:
-        #       /addcart?id=(productId)&name=(productName)&price=(productPrice)
-        #       Use flask.url_for('addcart.add_to_cart', id=..., name=..., price=...)
-        #       so special characters are URL-encoded correctly.
-        # Use escape_html and format_currency when displaying values.
-        return html_page("YOUR NAME Grocery", form +
-                         "<p>TODO: implement product search for Question 2.</p>")
+        connection = get_connection()
+        cursor = connection.cursor()
+
+        sql = "SELECT productId, productName, productPrice FROM product"
+
+        if name.strip():
+            cursor.execute(sql + " WHERE productName LIKE ?", f"%{name}%")
+        else:
+            cursor.execute(sql)
+
+        products = cursor.fetchall()
+        output = []
+
+        if not products:
+            output.append("<p>No matches</p>")
+        else:
+            output.append(
+                '<table border="1">'
+                "<tr><th>ID</th><th>Name</th><th>Price</th><th>Cart</th></tr>")
+
+            for product_id, product_name, price in products:
+                link = url_for(
+                    "addcart.add_to_cart",
+                    id=product_id,
+                    name=product_name,
+                    price=price)
+
+                output.append(
+                    f"<tr><td>{product_id}</td>"
+                    f"<td>{escape_html(product_name)}</td>"
+                    f"<td>{format_currency(price)}</td>"
+                    f'<td><a href="{escape_html(link)}">Add to cart</a></td></tr>')
+
+            output.append("</table>")
+
+        return html_page("YOUR NAME Grocery", form + "".join(output))
     except Exception:
         current_app.logger.exception("Unable to list products")
         return html_page("Product Search Error", form +
                          "<p>Unable to search products.</p>"), 500
     finally:
-        # TODO (Q2): Close the connection if it was opened.
-        pass
+        if connection is not None:
+            connection.close()
