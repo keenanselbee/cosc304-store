@@ -56,9 +56,20 @@ Do not use `docker compose down -v` unless you intend to delete the stored datab
 ```text
 root/
 ├── routes/               Store routes and database operations
+│   ├── listprod.py        Product search
+│   ├── listorder.py       Order listing
+│   ├── order.py           Save purchases
+│   ├── addcart.py         Cart handling
+│   ├── showcart.py        Cart display
+│   ├── checkout.py        Customer ID form
+│   ├── loaddata.py        Database check and reset
+│   └── __init__.py        Routes package
 ├── views/                Store landing page
 ├── ddl/                  Database setup and sample data
 ├── examples/             Instructor reference examples
+├── docs/
+│   ├── lab7-design-decisions.md
+│   └── PROVENANCE.md
 ├── app.py                Flask application
 ├── db.py                 Database connection helper
 ├── html_utils.py         HTML and currency formatting
