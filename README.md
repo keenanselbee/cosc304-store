@@ -1,0 +1,74 @@
+# COSC 304 - Online Store
+
+Database-enabled store using Python, Flask, and SQL Server.\
+Team Members: Mathijs Deelen, Keenan Selbee\
+Python Version: 3.12\
+Required Software: Docker Desktop
+
+**Set up from project root:**
+
+Create and activate a virtual environment for local Python tooling.
+
+```powershell
+py install 3.12
+py -3.12 -m venv "C:\Python\envs\cosc304-store"
+& "C:\Python\envs\cosc304-store\Scripts\Activate.ps1"
+python -m pip install -r requirements.txt
+```
+
+Install Python 3.12 if not already available. Create the environment, activate it again in new terminals when needed.
+
+In VS Code, select `C:\Python\envs\cosc304-store\Scripts\python.exe` as the Python interpreter.
+
+**Start application from project root:**
+
+With Docker Desktop running:
+
+```powershell
+docker compose up -d --build
+```
+
+**Application pages:**
+
+| Page | URL |
+|---|---|
+| Store | http://localhost/ |
+| Database connection check | http://localhost/loaddata |
+| Product list | http://localhost/listprod |
+| Order list | http://localhost/listorder |
+| Shopping cart | http://localhost/showcart |
+| Checkout | http://localhost/checkout |
+
+**Useful commands:**
+
+```powershell
+docker compose ps                # Check running services
+docker compose logs -f app       # View application logs
+docker compose stop              # Stop services
+docker compose up -d             # Restart services
+docker compose down              # Remove containers and preserve database
+```
+
+Do not use `docker compose down -v` unless you intend to delete the stored database.
+
+**Project structure:**
+
+```text
+root/
+├── routes/               Store routes and database operations
+├── views/                Store landing page
+├── ddl/                  Database setup and sample data
+├── examples/             Instructor reference examples
+├── app.py                Flask application
+├── db.py                 Database connection helper
+├── html_utils.py         HTML and currency formatting
+├── requirements.txt      Python dependencies
+├── Dockerfile            Application environment
+├── docker-compose.yml    Application and database services
+├── .gitignore
+└── README.md
+```
+
+**Sources:**
+
+Based on the [COSC 304 Python starter](https://github.com/rlawrenc/cosc_304/tree/main/labs/lab7/python).
