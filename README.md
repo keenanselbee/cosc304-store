@@ -16,10 +16,6 @@ py -3.12 -m venv "C:\Python\envs\cosc304-store"
 python -m pip install -r requirements.txt
 ```
 
-Install Python 3.12 if not already available. Create the environment, activate it again in new terminals when needed.
-
-In VS Code, select `C:\Python\envs\cosc304-store\Scripts\python.exe` as the Python interpreter.
-
 **Start application from project root:**
 
 With Docker Desktop running:
