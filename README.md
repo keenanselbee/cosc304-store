@@ -7,18 +7,13 @@ Required Software: Docker Desktop
 
 **Set up from project root:**
 
-Create and activate a virtual environment for local Python tooling.
+Optional: create a local virtual environment for editor tooling using Python 3.12. Docker runs the application separately.
 
 ```powershell
-py install 3.12
-py -3.12 -m venv "C:\Python\envs\cosc304-store"
-& "C:\Python\envs\cosc304-store\Scripts\Activate.ps1"
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 ```
-
-Install Python 3.12 if not already available. Create the environment, activate it again in new terminals when needed.
-
-In VS Code, select `C:\Python\envs\cosc304-store\Scripts\python.exe` as the Python interpreter.
 
 **Start application from project root:**
 
