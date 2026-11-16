@@ -2,6 +2,7 @@
 
 from decimal import Decimal
 from html import escape
+from flask import render_template, request, session, url_for
 
 
 def escape_html(value):
@@ -9,9 +10,19 @@ def escape_html(value):
 
 
 def format_currency(value):
-    return f"${Decimal(str(value)):.2f}"
+    amount = Decimal(str(value))
+    number = f"{amount:.0f}" if amount == amount.to_integral_value() else f"{amount:.2f}"
+    label = "elf ear" if amount == 1 else "elf ears"
+    return (f'<span class="price" aria-label="{number} {label}">{number}'
+            '<img class="ear-icon" src="/static/images/elf-ear-bloody.png" alt=""></span>')
 
 
-def html_page(title, body):
-    return ("<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>"
-            f"<title>{escape_html(title)}</title></head><body>{body}</body></html>")
+def html_page(title, body, *, shop=False):
+    return render_template("page.html", title=title, body=body, shop=shop,
+                           endpoint=request.endpoint or "", user_name=session.get("authenticatedUser"))
+
+
+def image_source(image_url):
+    if image_url and not image_url.startswith(("http://", "https://", "/")):
+        return url_for("static", filename=image_url)
+    return image_url

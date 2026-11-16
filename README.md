@@ -23,6 +23,21 @@ With Docker Desktop running:
 docker compose up -d --build
 ```
 
+**Load the Gruk theme:** After SQL Server is ready, run once:
+
+```powershell
+docker exec -w /app cosc304-python python theme.py
+```
+
+This sets up eight shop products and themes the remaining sample products as past stock.\
+On the first run, the five supplied orders receive elf-ear prices and matching totals.\
+Product IDs, order quantities and inventory quantities stay the same.
+
+**Demo login:** Username: `gruk` Password: `axe` Customer ID: `1`
+
+Theme setup gives sample customer 1 Gruk's name and fictional shop contact details,
+preserves its existing orders, and restores the account after a database reset.
+
 **Application pages:**
 
 | Page | URL |
@@ -47,9 +62,11 @@ docker compose up -d --build
 docker exec -w /app cosc304-python python -m unittest discover -s tests -v
 ```
 
-`tests/test_lab7.py` checks search, cart and orders.  
-`tests/test_lab8.py` checks images, login, customer information, sales and shipments.  
+`tests/test_lab7.py` checks search, cart and orders.\
+`tests/test_lab8.py` checks images, login, customer information, sales and shipments.\
 Shared helpers are in `tests/support.py`.
+`tests/test_theme.py` checks category search, past-stock restrictions and repeatable theme setup.\
+Run the tests after applying the theme. The tests use the local SQL Server database and clean up their records.
 
 **Useful commands:**
 
@@ -67,29 +84,44 @@ Do not use `docker compose down -v` unless you intend to delete the stored datab
 
 ```text
 root/
-├── routes/               Store routes and database operations
-│   ├── listprod.py        Product search
-│   ├── listorder.py       Order listing
-│   ├── order.py           Save purchases
-│   ├── addcart.py         Cart handling
-│   ├── showcart.py        Cart display
-│   ├── checkout.py        Customer ID form
-│   ├── loaddata.py        Database check and reset
-│   └── __init__.py        Routes package
-├── views/                Store landing page
-├── ddl/                  Database setup and sample data
-├── examples/             Instructor reference examples
-├── docs/
-│   ├── lab7-design-decisions.md
-│   └── PROVENANCE.md
-├── app.py                Flask application
-├── db.py                 Database connection helper
-├── html_utils.py         HTML and currency formatting
-├── requirements.txt      Python dependencies
-├── Dockerfile            Application environment
-├── docker-compose.yml    Application and database services
-├── .gitignore
-└── README.md
+|-- routes/               Store routes and database operations
+|   |-- listprod.py        Product search and category filters
+|   |-- product.py         Product details
+|   |-- display_image.py   Database image response
+|   |-- listorder.py       Order listing
+|   |-- order.py           Save purchases
+|   |-- addcart.py         Cart handling
+|   |-- showcart.py        Cart display
+|   |-- checkout.py        Customer ID form
+|   |-- login.py           Login form
+|   |-- validate_login.py  Check credentials
+|   |-- logout.py          End login session
+|   |-- auth.py            Login requirement helper
+|   |-- customer.py        Logged-in customer details
+|   |-- admin.py           Daily sales report
+|   |-- ship.py            Shipment transaction
+|   |-- loaddata.py        Database check and reset
+|   `-- __init__.py        Routes package
+|-- views/                Shared page, shop and product templates
+|-- static/
+|   |-- css/               Shared shop styling
+|   |-- js/                Gruk dialogue animation
+|   |-- images/            Theme artwork and product image pairs
+|   `-- img/               Original starter product images
+|-- images/mockups/       Selected design references
+|-- tests/                Lab 7, Lab 8 and theme integration tests
+|-- ddl/                  Database setup and sample data
+|-- examples/             Instructor reference examples
+|-- docs/                 Design decisions, shop content, asset prompts and provenance
+|-- app.py                Flask application
+|-- db.py                 Database connection helper
+|-- html_utils.py         HTML and currency formatting
+|-- theme.py              Repeatable catalogue and demo-account setup
+|-- requirements.txt      Python dependencies
+|-- Dockerfile            Application environment
+|-- docker-compose.yml    Application and database services
+|-- .gitignore
+`-- README.md
 ```
 
 **Sources:**

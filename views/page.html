@@ -1,0 +1,55 @@
+{% macro timber_rail(position) -%}
+<svg class="timber-rail {{ position }}" viewBox="0 160 2172 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><image href="{{ url_for('static', filename='images/timber-post.png') }}" width="724" height="2172" transform="translate(2172 0) rotate(90)"/></svg>
+{%- endmacro %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} · Gruk's Glorious Gear</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/shop.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/elf-ear-bloody.png') }}">
+  {% if shop %}<script defer src="{{ url_for('static', filename='js/gruk.js') }}"></script>{% endif %}
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="store-frame">
+    <header class="site-header">
+      <a class="wood-sign" href="{{ url_for('index') }}" aria-label="Gruk's Glorious Gear shop, elf ears only">
+        <span>ELF EARS ONLY</span><img src="/static/images/elf-ear-bloody.png" alt="">
+      </a>
+      <div class="header-links">
+        <nav aria-label="Main navigation">
+          {% for label, target, active in [
+            ('Shop', 'listprod.list_products', shop or endpoint == 'product.product_details'),
+            ('Cart', 'showcart.show_cart', endpoint in ['showcart.show_cart', 'checkout.checkout', 'order.place_order']),
+            ('Orders', 'listorder.list_orders', endpoint == 'listorder.list_orders'),
+            ('My Account', 'customer.customer_information', endpoint == 'customer.customer_information'),
+            ('Admin', 'admin.admin_report', endpoint == 'admin.admin_report')] %}
+          <a href="{{ url_for(target) }}" {% if active %}aria-current="page"{% endif %}>{{ label }}</a>
+          {% endfor %}
+          {% if user_name %}<a href="{{ url_for('logout.log_out') }}">Logout</a>
+          {% else %}<a href="{{ url_for('login.login_page') }}" {% if endpoint == 'login.login_page' %}aria-current="page"{% endif %}>Login</a>{% endif %}
+        </nav>
+        {% if user_name %}<span class="signed-in">Signed in as {{ user_name }}</span>{% endif %}
+      </div>
+    </header>
+    {% if not shop %}<div class="inner-frame">{{ timber_rail('top-rail') }}{% endif %}
+    <main id="content" class="{{ 'shop-page' if shop else 'content-panel' }}">
+      {% if not shop %}<p class="shop-label"><a href="{{ url_for('index') }}" aria-label="Back to Gruk's Glorious Gear shop"><svg class="back-arrow" viewBox="0 0 36 30" width="36" height="30" aria-hidden="true" focusable="false"><path d="M2 15 15 3v7h19v10H15v7Z"/></svg>Gruk's Glorious Gear</a></p>{% endif %}
+      {{ body|safe }}
+      {% if shop %}{{ timber_rail('bottom-rail') }}{% endif %}
+    </main>
+    {% if not shop %}{{ timber_rail('bottom-rail') }}</div>{% endif %}
+    <footer>
+      <span>Gruk's Glorious Gear. Proudly counting ears since breakfast.</span>
+      <details class="lab-tools">
+        <summary>Lab tools</summary>
+        <a href="/loaddata">Database setup</a>
+        <a href="/ship?orderId=1" onclick="return confirm('Ship sample order 1? This updates inventory.');">Ship order 1</a>
+        <a href="/ship?orderId=3" onclick="return confirm('Test shipment of sample order 3?');">Test order 3</a>
+      </details>
+    </footer>
+  </div>
+</body>
+</html>

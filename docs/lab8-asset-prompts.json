@@ -3,6 +3,52 @@
   "reference": "images/mockups/lab8-shop-mockup.png",
   "assets": [
     {
+      "path": "static/images/header-slab.png",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset type: transparent fantasy shop website header background. Create ONE extremely wide horizontal solid dark walnut timber slab seen straight-on, orthographic, intended as a navigation bar across a rustic cartoon orc merchant shop. Panoramic landscape canvas. Slab fills almost all width and central 70 percent of height, transparent margins. Rough but restrained hand-hewn outside edges, subtly chipped corners, thick square profile with a narrow amber-lit upper edge and dark lower bevel. Rich dark warm brown, broad understated horizontal grain and a few shallow cracks. Interior face must be quiet low contrast and dark enough for cream navigation text to be added in HTML. Detailed painterly fantasy game style, slightly realistic materials, not photorealistic, not polished furniture, not decorative moulding. Single slab ONLY, no sign, no posts, no chains, no lettering, no symbols, no bolts, no UI, no objects, no background. Genuine transparent alpha outside silhouette. Fairly straight edges, no perspective convergence, no cylindrical curve. Match warm rustic reddish walnut wood with restrained amber highlights. This will display approximately 1640px wide and 120px high.",
+      "size_px": [
+        2172,
+        724
+      ],
+      "validation": "Transparent PNG decoded and header visually checked in browser; no overflow or sign/navigation overlap at 1280, 1440 and 1800px",
+      "note": "Original generated source retained; CSS fits the artwork behind HTML navigation"
+    },
+    {
+      "path": "static/images/hanging-sign.png",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset type: transparent blank hanging shop sign for a fantasy orc store website. ONE wide horizontal chunky rectangular wooden sign, made of three warm reddish walnut planks, softly uneven chipped edges, amber worn bevel highlights and dark cracks. Four round dark iron bolt heads, one at each corner. TWO short stout dark bronze iron chains rising vertically from attachment rings near upper left and upper right ends (at 12% and 88% of sign width); each chain has 3 readable oval links and extends above the board, attached naturally. Straight-on orthographic view; no perspective tilt. Illustrated detailed painterly cartoon fantasy game style, mildly realistic materials, chunky rustic craftsmanship matching warm orc weapons shop. Blank central face darker quiet brown for large gold HTML lettering to be overlaid. NO letters, NO words, NO symbols, NO ear icon. Entire board and both chains visible inside canvas. Panoramic composition about 4:1, sign spans 96% width. Chains occupy top 20% of full object height, board bottom80%. Genuine transparent background everywhere outside sign and chains, including space between chains above board. No background, no wall, no posts, no extra objects, no external cast shadow, no text. Board will display around 550px wide and 90px tall plus short chains. Avoid delicate tiny grain, avoid polished furniture, avoid bright yellow metal.",
+      "size_px": [
+        2172,
+        724
+      ],
+      "validation": "Transparent PNG decoded; chains, bolts and HTML lettering placement checked in browser at three desktop widths; sign link returns to shop",
+      "note": "Original generated source retained; text and ear icon are HTML layered over the blank artwork"
+    },
+    {
+      "path": "static/images/timber-post.png",
+      "source_filename": "exec-299b7834-057d-4153-94ac-d78963c19c61.png",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset type: transparent reusable fantasy shop website framing sprite. Generate ONE tall narrow vertical rough-hewn walnut timber post, straight-on orthographic front view, long rectangular flat face with narrow bevelled sides, visibly hand-hewn worn chipped edges, restrained chunky grain and a few dark cracks, rich warm reddish dark brown with warm amber edge lighting from upper left. Painterly detailed cartoon fantasy game material, slightly realistic, sturdy rustic orc shop not polished furniture. No metal, no decorations, no lettering, no other objects. Genuine transparent background. Portrait canvas, single post spanning full canvas HEIGHT with square cut ends flush to top and bottom; post occupies central 80 percent of canvas WIDTH, modest transparent margin on either side. Aim long narrow 1:8 silhouette, so suitable for a website rail displayed 40px wide. Mostly straight silhouette with subtle wear rather than curved organic log. Broad readable details; dark shaded right bevel and lighter left bevel. No floor, no cast shadow outside the post, no perspective taper, no rounded cylindrical log. Keep top and bottom ends similar in colour and grain so repetition along its length is unobtrusive. This is only an isolated wood asset, not a website mockup.",
+      "size_px": [
+        724,
+        2172
+      ],
+      "validation": "PNG decoded; transparent corner and opaque-content alpha checked; shop and product framing visually inspected; no page overflow at 1280, 1440 and 1800px",
+      "note": "Original full-resolution source preserved; CSS background sizing hides transparent margins and fits the framing without editing the PNG"
+    },
+    {
+      "path": "static/images/counter-plank.png",
+      "source_filename": "exec-c3bd9bc4-606e-4ced-a0d3-7a6b096d2f2c.png",
+      "transparent_background": true,
+      "prompt": "Use case: stylized-concept. Asset type: transparent horizontal counter plank sprite for rustic fantasy orc shop website. Generate ONE exceptionally long horizontal heavy rough-hewn walnut counter beam seen straight-on with a shallow visible TOP SURFACE along the full length, no perspective convergence. Landscape panoramic canvas roughly 8:1. Beam stretches almost full WIDTH with minimal transparent side margins. Beam occupies central 65 percent of image HEIGHT. Warm reddish dark walnut brown, broad readable carved grain, a few knots and coarse chips, worn irregular corners, flat squared front face, lighter warm amber top lip, dark lower bevel. Detailed hand-painted cartoon fantasy game material with slightly realistic texture, sturdy rough orc carpentry not polished furniture or rounded moulding. The front face is about three quarters of thickness and flat top surface one quarter, clear separation via worn edge. Genuine transparent background around silhouette. Single solid beam ONLY, no posts, no feet, no tabletop objects, no nails or metal, no text, no logo, no scenery, no ground shadows. Consistent soft light upper left, darker underneath. Horizontal straight beam with restrained silhouette irregularities; no curves, no diagonal perspective, no ends pointing toward camera. Must remain recognizable when displayed across a 1560px website at about 64px tall; bold grain and edge detail, avoid tiny busy scratches.",
+      "size_px": [
+        2172,
+        724
+      ],
+      "validation": "PNG decoded; transparent corner and opaque-content alpha checked; counter and inner-page trim visually inspected; no page overflow at 1280, 1440 and 1800px",
+      "note": "Original full-resolution source preserved; CSS background sizing hides transparent margins and fits the framing without editing the PNG"
+    },
+    {
       "path": "static/images/gruk.png",
       "transparent_background": true,
       "prompt": "Use case: identity-preserve / background-extraction. Create a standalone reusable website character asset from the supplied Gruk's Glorious Gear mockup A. The mockup is the visual reference and the orc on the right is the target character. Preserve this exact Gruk identity: broad olive-green muscular cartoon orc merchant, swept back dark hair, pointed ears, small tusks, toothy warm mischievous grin, dark pointed beard, brown leather apron with brass buckles and stitched pocket, leather wrist guards, cream cloth with red stripes over his left shoulder (viewer right). Preserve the relaxed pose resting his chin against his right fist (viewer left), leaning on his right elbow. Isolate and redraw cleanly at high resolution: head, both shoulders, arms, torso and apron down to waist; whole silhouette inside the canvas, with padding around hair, ears, arms and shoulders. Pose should align naturally behind a future horizontal counter, but OMIT the counter itself. Match the chunky painterly World of Warcraft-inspired art and warm lighting exactly. Genuine transparent alpha background, not a painted checkerboard. No shelves, scenery, words, speech bubbles, logo, UI, props, border or background shadow. One character only. Landscape roughly 4:3 composition, tightly framed but no cropped silhouette except natural waist cutoff."
@@ -42,7 +88,7 @@
       ],
       "sha256": "0f48712a1c979382bd4c982dc0f0df8dd29525c52f64d388bf5014a4f5e4c40a",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "01-slightly-used-war-axe-item-a.png",
         "gruk.png"
@@ -59,7 +105,7 @@
       ],
       "sha256": "c71034e2d4c9915950a3ca6e226339996443adb4a1c195040b771dce149c013b",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "01-slightly-used-war-axe-item-a.png"
       ]
@@ -75,7 +121,7 @@
       ],
       "sha256": "24c96b7f877c1b136965c4c93d8a6c315cd9c0120ef2ff386ec5ac46a57beeb4",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "02-the-bigger-argument-item-a.png",
         "01-slightly-used-war-axe-gruk-a.png"
@@ -92,7 +138,7 @@
       ],
       "sha256": "897a572d92665e986da571a26bc31d805d8324895086e86387284a931051e0ef",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "01-slightly-used-war-axe-item-a.png"
       ]
@@ -108,7 +154,7 @@
       ],
       "sha256": "d3fdff9bd13d4931262a9b1555db80f7932ec40aa1f82a0ee4da54f091d1cb5b",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "03-politely-dented-shield-item-a.png",
         "01-slightly-used-war-axe-gruk-a.png"
@@ -125,7 +171,7 @@
       ],
       "sha256": "e1c8a05e8593ce772ffeb3f488795ffed16dc8aa0d48da51dfe5b1d15f3ac67e",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "01-slightly-used-war-axe-item-a.png"
       ]
@@ -141,7 +187,7 @@
       ],
       "sha256": "6da24c10d683ce4d256c255b768d24524a101a72406bf6d1dda41c8349682bb9",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "04-helmet-of-almost-wisdom-gruk-e-three-quarter-club.png",
         "03-politely-dented-shield-gruk-b.png"
@@ -158,7 +204,7 @@
       ],
       "sha256": "2e3cdad182b1e500db6d7fd890d7ee9802f9d531398d7a2afe5074d461e45411",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "04-helmet-of-almost-wisdom-item-a.png"
       ]
@@ -174,7 +220,7 @@
       ],
       "sha256": "41fb8cb376bc77b29b3c3fe80ea2747109eaa761de116e2a5036dd0287b0af24",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "05-boots-of-strategic-retreat-item-a.png",
         "01-slightly-used-war-axe-gruk-a.png"
@@ -191,7 +237,7 @@
       ],
       "sha256": "c3448c23bbde9d06fc13b7b6cb9ab1f9640e36c19fc5742f097bdba8d6040ee5",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "01-slightly-used-war-axe-item-a.png"
       ]
@@ -207,7 +253,7 @@
       ],
       "sha256": "8eaf2fe1d27a6ffca8c9e6b0f6f11cf234c75bda96360d53b007580e80b8a00b",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "06-suspicious-red-potion-gruk-b.png"
       ]
@@ -223,7 +269,7 @@
       ],
       "sha256": "faa68d05879eb12580faceb23aa27e4cba242a0305d3d4bec1ed286a8a8f7d6a",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "01-slightly-used-war-axe-item-a.png"
       ]
@@ -239,7 +285,7 @@
       ],
       "sha256": "568520fca505e2ae9844c570b1d1e9b5cee1b6d225d8dd4bd9dbf01770771dae",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending"
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration"
     },
     {
       "path": "static/images/products/blue-thinking-juice.png",
@@ -252,7 +298,7 @@
       ],
       "sha256": "5bae33023c37bd5c04ecafe0f1e5b8d17470bb3c566ee64a76a7bfaae08e757f",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "01-slightly-used-war-axe-item-a.png"
       ]
@@ -268,7 +314,7 @@
       ],
       "sha256": "d056ce8b9fdc1db5c3a209379ba677f8fafae220c802df155e38b190829a682c",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "08-bottled-bad-idea-item-a.png",
         "01-slightly-used-war-axe-gruk-a.png"
@@ -285,7 +331,7 @@
       ],
       "sha256": "cca6df16c97bd0ff064af99a1832c1f8829bb9061f5e0dbc85529052338f195a",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "08-bottled-bad-idea-gruk-b.png"
       ]
@@ -301,7 +347,7 @@
       ],
       "sha256": "f1eaa59d05e1817050cfb79f6acae3b87e78ab34e854debb33ac1711e4640ba4",
       "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution",
-      "note": "Source artwork; website placement and final display-size checks pending",
+      "note": "Original PNG used in the desktop shop; browser loading and placement checked during frontend integration",
       "generation_reference_filenames": [
         "lab8-shop-mockup.png"
       ]

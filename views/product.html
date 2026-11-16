@@ -1,0 +1,26 @@
+<article class="product-detail">
+  <div class="product-images">
+    {% if image_url %}<img class="main-product" src="{{ image_url }}" alt="{{ name }}" width="420" height="330">{% endif %}
+    {% if has_database_image %}<img class="gruk-product" src="{{ url_for('display_image.display_image', id=product_id) }}" alt="Gruk demonstrating {{ name }}" width="190" height="195">{% endif %}
+    {% if not image_url and not has_database_image %}<p class="no-art">Gruk misplaced the picture.</p>{% endif %}
+  </div>
+  <div class="product-info">
+    <h1>{{ name }}</h1>
+    <p class="product-meta">Product ID: {{ product_id }}{% if category %} · {{ category }}{% endif %}</p>
+    <p class="product-description">{{ description or '' }}</p>
+    <p class="detail-price">{{ format_currency(price)|safe }}</p>
+    {% if category == 'Past Stock' %}<p>This item is no longer offered. Gruk has new gear on the shelves.</p>
+    {% else %}<p><a class="button" href="{{ url_for('addcart.add_to_cart', id=product_id, name=name, price=price) }}">Add to Cart</a></p>{% endif %}
+    <p><a href="{{ url_for('listprod.list_products') }}">Continue Shopping</a></p>
+    {% set gruk_lines = {
+      1: 'Previous owner said over his dead body. Gruk respects a deal.',
+      2: 'Gruk tried using words. This has better reach.',
+      3: 'Gruk calls those dents proof it works.',
+      4: 'Gruk wears this before thinking. Just in case.',
+      5: 'Gruk never runs from trouble. Gruk runs toward being elsewhere.',
+      6: 'Gruk tried a sip. Eyebrows should grow back.',
+      7: 'Gruk had two thoughts after drinking this. Both were about axes.',
+      8: 'Gruk cannot remember making this. Label suggests that is normal.'} %}
+    <p class="gruk-aside">{{ gruk_lines.get(product_id, 'Gruk would use this himself. But Gruk would rather sell it.') }}</p>
+  </div>
+</article>

@@ -8,8 +8,9 @@ bp = Blueprint("checkout", __name__)
 
 @bp.get("/checkout")
 def checkout():
-    return html_page("Grocery Store Checkout", """
+    return html_page("Checkout", """
         <h1>Checkout</h1>
+        <p class="gruk-aside">Count gear. Count ears. Then we do business.</p>
         <p>Enter your customer ID to complete the transaction:</p>
         <form method="post" action="/order">
             <label for="customerId">Customer ID:</label>

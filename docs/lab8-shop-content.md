@@ -1,8 +1,8 @@
 # Lab 8 Shop Content
 
-Gruk's Glorious Gear is a cartoon fantasy shop selling war axes, potions and equipment for elf ears. This document collects the proposed shop copy and image ideas before they are added to the application.
+Gruk's Glorious Gear is a cartoon fantasy shop selling war axes, potions and equipment for elf ears. This document records the implemented shop content alongside unused copy and early image ideas.
 
-The shop name and elf-ear currency are agreed decisions. The character details, quotes, items and prices below are a first draft that we can adjust.
+The shop identity, catalogue, product subtext and speech-bubble pool below are implemented. Draft copy and early image directions are labelled separately; `theme.py` is the source of truth for product data.
 
 ## Shop Identity
 
@@ -10,12 +10,16 @@ The shop name and elf-ear currency are agreed decisions. The character details, 
 |---|---|
 | Shop name | Gruk's Glorious Gear |
 | Tagline | Sharp axes. Strong potions. No refunds. |
-| Welcome heading | Gear up with Gruk |
-| Welcome text | War axes, sturdy armour and potions of mostly known origin. Browse Gruk's finest supplies before your next questionable adventure. |
+| Welcome heading | Gruk's Glorious Gear |
 | Wooden sign | ELF EARS ONLY, followed by the bloody purple ear icon |
 | Default speech bubble | Gruk is all ears, financially speaking. |
-| Main button | Browse Gear |
 | Footer line | Gruk's Glorious Gear. Proudly counting ears since breakfast. |
+
+### Unused welcome copy
+
+- Heading: Gear up with Gruk
+- Text: War axes, sturdy armour and potions of mostly known origin. Browse Gruk's finest supplies before your next questionable adventure.
+- Button: Browse Gear
 
 ## Meet Gruk
 
@@ -35,9 +39,9 @@ Use an original cartoon orc design with the chunky shapes and exaggerated equipm
 - Navigation, form labels and error explanations use ordinary clear English.
 - Product descriptions are flavour text, not promises of game mechanics.
 
-## Starter Catalogue
+## Current Catalogue
 
-Eight proposed products across three categories. Prices are per item in elf ears. Product IDs will be mapped to the existing database during implementation.
+Eight current products across three categories. Prices are per item in elf ears. Product IDs 1-8 follow the order below. `theme.py` is the source of truth for the implemented catalogue, including past stock and sample-order conversion.
 
 | Product | Category | Price | Description |
 |---|---|---:|---|
@@ -52,11 +56,11 @@ Eight proposed products across three categories. Prices are per item in elf ears
 
 ### Past Stock and Sample Orders
 
-The storefront starts with the eight products above. The other 21 supplied product records will become past fantasy stock so existing order history also fits Gruk's shop. They need simple themed names and descriptions, not another set of generated images or product cards. Keep their original IDs and order relationships.
+The storefront shows the eight products above. The other 21 supplied product records are themed as past stock so existing order history also fits Gruk's shop. They have themed names and descriptions without product artwork or storefront cards. Their original IDs and order relationships are preserved.
 
-The supplied demonstration orders will receive whole-number elf-ear unit prices and matching recalculated totals during the initial theme conversion. Keep dates, customers, ordered quantities and inventory quantities unchanged so the Lab 8 shipment examples still work. Later purchases retain their saved prices. The setup module will hold the final mapping and values; see [Catalogue and Reset Behaviour](lab8-design-decisions.md#catalogue-and-reset-behaviour).
+The initial theme conversion gives the supplied demonstration orders whole-number elf-ear unit prices and matching recalculated totals. Dates, customer IDs, ordered quantities and inventory quantities are preserved so the Lab 8 shipment examples still work. Later purchases retain their saved prices, and reapplying the theme does not reprice history. `theme.py` holds the mapping and values; see [Catalogue and Reset Behaviour](lab8-design-decisions.md#catalogue-and-reset-behaviour).
 
-### Category introductions
+### Draft category introductions
 
 | Category | Short introduction |
 |---|---|
@@ -66,12 +70,12 @@ The supplied demonstration orders will receive whole-number elf-ear unit prices 
 
 ## Page and Event Quotes
 
-These are fixed lines for the relevant page or event. The shop welcome line appears first before the speech bubble begins its shuffled quote cycle, as described in [Lab 8 Design Decisions](lab8-design-decisions.md#gruks-shop-speech-bubble). Other page and event lines stay fixed.
+This copy bank includes both used and unused page/event lines; it is not a list of implemented messages. Any line used for a page or event stays fixed. The shop welcome line appears first before the speech bubble begins its shuffled quote cycle, as described in [Lab 8 Design Decisions](lab8-design-decisions.md#gruks-shop-speech-bubble). Other page and event lines stay fixed.
 
 | Location or event | Gruk's line |
 |---|---|
 | Shop welcome | Gruk is all ears, financially speaking. |
-| Product details | Gruk would use this himself. But Gruk would rather sell it. |
+| Product details | Use the item-specific line below; other products keep the general fallback |
 | Empty cart | Nothing? You fighting dragon with manners? |
 | Cart with items | Good pile. Could be bigger pile. |
 | Checkout | Count gear. Count ears. Then we do business. |
@@ -85,9 +89,26 @@ These are fixed lines for the relevant page or event. The shop welcome line appe
 | Successful shipment | All packed. Gruk used the good crate. |
 | Insufficient inventory | Not enough gear. Gruk refuses to ship half an adventure. |
 
+### Product Detail Subtext
+
+These fixed lines appear below Continue Shopping on each current product page. The displayed copy is kept in `views/product.html`.
+
+| Product | Gruk's line |
+|---|---|
+| Slightly Used War Axe | Previous owner said over his dead body. Gruk respects a deal. |
+| The Bigger Argument | Gruk tried using words. This has better reach. |
+| Politely Dented Shield | Gruk calls those dents proof it works. |
+| Helmet of Almost Wisdom | Gruk wears this before thinking. Just in case. |
+| Boots of Strategic Retreat | Gruk never runs from trouble. Gruk runs toward being elsewhere. |
+| Suspicious Red Potion | Gruk tried a sip. Eyebrows should grow back. |
+| Blue Thinking Juice | Gruk had two thoughts after drinking this. Both were about axes. |
+| Bottled Bad Idea | Gruk cannot remember making this. Label suggests that is normal. |
+
+Other products use: Gruk would use this himself. But Gruk would rather sell it.
+
 ### Spare lines
 
-Use these as the initial shop speech-bubble pool after the default welcome quote. Keep them in one frontend quote list when implemented.
+These lines form the shop speech-bubble pool after the default welcome quote. The implemented list and item hover pitches are in `static/js/gruk.js`.
 
 - "You bring ears. Gruk brings gear. Good arrangement."
 - "Browse all you want. Touch cursed shelf at own risk."
@@ -98,7 +119,7 @@ Use these as the initial shop speech-bubble pool after the default welcome quote
 
 ## Clear Messages Alongside the Jokes
 
-The functional message appears first. A Gruk quote may follow as a separate sentence or short line.
+These are draft wording examples. The routes retain their actual functional messages. The functional message appears first; a Gruk quote may follow as a separate sentence or short line.
 
 | Situation | Functional message |
 |---|---|
@@ -128,7 +149,9 @@ Placeholders represent values supplied by the application. Only display success 
 
 Use the same simple cartoon style for all products: chunky outlines, readable silhouettes, warm highlights and a plain or transparent background. Keep the illustrations clear at small sizes.
 
-| Asset | Image direction |
+The table below records early image ideas. Selected source images take precedence, including the final helmet without a crest.
+
+| Asset | Early image direction |
 |---|---|
 | Gruk | Green orc merchant with large tusks, leather apron and an eager grin behind a wooden counter |
 | Slightly Used War Axe | Single iron axe head with a small nick and a brown wrapped handle |
@@ -155,10 +178,14 @@ The selected artwork provides two images per product: a standalone item for URL-
 | Clean elf ear | `static/images/elf-ear.png` | Transparent source variant without blood |
 | Bloody elf ear | `static/images/elf-ear-bloody.png` | Currency icon beside prices and on the wooden sign |
 | Shop interior | `static/images/shop-interior.png` | Cluttered weapons-and-potions background behind the welcome Gruk |
+| Timber post | `static/images/timber-post.png` | Side posts and rotated horizontal panel rails |
+| Counter plank | `static/images/counter-plank.png` | Shop counter beneath Gruk's hand and elbow |
+| Header slab | `static/images/header-slab.png` | Wooden background behind navigation |
+| Hanging sign | `static/images/hanging-sign.png` | Wooden sign and chains behind the HTML currency heading |
 | Eight product pairs | `static/images/products/` | Full-resolution selected item sources and matching `-gruk` demonstration images |
 
-These assets were generated with OpenAI's built-in image generation tool using the selected visual references. Retained prompts and summaries of earlier edits are recorded in [Lab 8 Asset Prompts](lab8-asset-prompts.json), with a general credit in [Provenance](PROVENANCE.md). The eight product pairs and shop interior have been selected and imported. Texture repetition, final sizing and composition will be checked when the assets are used in the page layout. Earlier image directions above are creative drafts; the selected source images take precedence for visual details.
+These assets were generated with OpenAI's built-in image generation tool using the selected visual references. Retained prompts and summaries of earlier edits are recorded in [Lab 8 Asset Prompts](lab8-asset-prompts.json), with a general credit in [Provenance](PROVENANCE.md). The listed assets are imported and used in the frontend. Texture repetition, sizing and composition were checked in the desktop browser during styling. Earlier image directions above are creative drafts; the selected source images take precedence for visual details.
 
-This file holds the creative draft, reusable quotes and image notes. When the catalogue is implemented, the database setup script becomes the source of truth for active product names, descriptions and prices. Record its path here at that point and keep unused ideas in this document.
+This file holds current content, labelled draft ideas, reusable quotes and image notes. The setup module `theme.py` is the source of truth for active product names, descriptions and prices. Unused ideas remain here.
 
 Draft prepared with ChatGPT during the Lab 8 planning conversation. Include the conversation link in the project's source documentation when available.

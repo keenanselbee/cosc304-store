@@ -6,8 +6,8 @@ Build on the existing Python store with the required Lab 8 features and a simple
 
 - The shop is **Gruk's Glorious Gear**, run by a cartoon orc merchant.
 - Sell war axes, potions and equipment using **elf ears** as the displayed currency.
-- Use [Lab 8 Shop Content](lab8-shop-content.md) for Gruk's personality, quotes, proposed products and image ideas. Item names and prices there remain a draft until implemented.
-- Start with the proposed eight-item catalogue across Weapons, Armour and Potions. Map it onto existing product records without breaking order or inventory relationships.
+- Use [Lab 8 Shop Content](lab8-shop-content.md) for Gruk's personality, quotes, proposed products and image ideas. `theme.py` holds the implemented product names and prices; unused ideas in the content document remain drafts.
+- Use the eight-item catalogue across Weapons, Armour and Potions, mapped onto existing product records without breaking order or inventory relationships.
 - Keep the humour in descriptions and Gruk quotes, including the rotating shop speech bubble described below. Use clear navigation labels and functional messages.
 - Keep internal names such as `product`, `price`, `customer` and `inventory` straightforward.
 
@@ -15,6 +15,9 @@ Build on the existing Python store with the required Lab 8 features and a simple
 
 - **Mockup A (Timber Shop) is the selected visual direction:** [shop mockup](../images/mockups/lab8-shop-mockup.png). Keep this reference in `images/mockups`.
 - Use a simple layout with dark brown backgrounds, readable parchment-coloured panels, and green and gold accents.
+- Reuse `static/images/timber-post.png` and `static/images/counter-plank.png` for rough wooden framing and the shop counter. Keep their source PNGs intact and fit them with CSS; keep text and controls in HTML.
+- Turn the post artwork sideways for the shop bottom rail and both horizontal rails on inner-page panels. Use `header-slab.png` for the broad navigation slab and `hanging-sign.png` for the brighter sign with short visible chains; centre the HTML lettering on the board and spread navigation links across the remaining header width. Extend the shop posts underneath the header.
+- Keep Gruk's displayed size stable. Place his full image behind the counter and a clipped copy of only his elbow and hand in front, so the lower apron stays behind the wood. Both layers reuse the original PNG.
 - The top wooden sign reads **ELF EARS ONLY** beside the bloody purple ear icon. Keep the shop name in the main welcome banner.
 - Gruk's default speech bubble reads **Gruk is all ears, financially speaking.**
 - Keep one shared stylesheet and reuse the existing page-generation approach with a small shared header/menu where practical. Avoid a new frontend framework or a broad rewrite.
@@ -40,9 +43,10 @@ Build on the existing Python store with the required Lab 8 features and a simple
 - Reveal each quote with a quick typewriter effect: letters appear progressively like game dialogue, rather than fading or sliding. Use about 20-30 ms per character as a starting point, including the first default quote when JavaScript is enabled. Start the reading interval after the full quote is visible.
 - Give individual letters a subtle independent jitter as they type in, with a very gentle ongoing wiggle once revealed. Use small offsets and staggered timing so the text stays easy to read. The bubble itself and Gruk's illustration stay still; animate letters without moving their layout positions.
 - Reserve enough bubble space for the longest quote so changes do not move the surrounding layout. Keep the text as real HTML.
-- Provide a small Pause/Resume control for rotation and motion. When reduced motion is requested, show the default without automatic rotation or animation. Pause timers while the browser tab is hidden, without catching up on missed quotes.
+- Keep the bubble free of controls. When reduced motion is requested, show the default without automatic rotation or animation. Pause timers while the browser tab is hidden, without catching up on missed quotes.
 - Use a small plain JavaScript script and CSS animations; no animation library, database table or API requests. Do not announce every decorative quote change through a screen-reader live region.
 - This behaviour belongs to the shop welcome scene. Keep page-specific and transaction-related quotes fixed so random jokes never replace useful feedback.
+- Hovering over a product card (or focusing a link within it) can trigger a short funny sales pitch for that item. Use a shared 6-second cooldown between pitches. Ignore triggers while a line is typing or in reduced-motion mode; do not queue them. After the pitch finishes and its reading interval passes, resume the shuffled idle quotes. Keep the eight pitches in `static/js/gruk.js`; no database changes are needed.
 
 ## Shared Code Decisions
 
@@ -74,6 +78,8 @@ Build on the existing Python store with the required Lab 8 features and a simple
 
 ## Login Customer Information and Sales
 
+- Use sample customer 1 as the complete demo profile: Gruk Gear, username `gruk`, password `axe`, with fictional shop contact details. Preserve customer ID 1 and its order relationships. Theme setup restores this after a reset and only removes the earlier separate Gruk account if it has no orders, payment methods or reviews.
+
 - Validate the submitted user ID and password against the lab database using a parameterized query. Store the authenticated identity in the session and clear it on logout.
 - Check login on the server before showing protected pages. Hiding a menu link is not an access check.
 - Load customer information using the authenticated session identity, not a customer ID that the visitor can freely change in the URL. Handle a missing customer record clearly.
@@ -99,14 +105,14 @@ Build on the existing Python store with the required Lab 8 features and a simple
 
 ## Frontend Completion Plan
 
-This is the implementation plan, not a claim that the frontend is complete. Keep changes on the current feature branch and review them against the saved backend baseline. Do not commit, merge or push automatically.
+Review frontend changes against the committed backend baseline. Do not commit, merge or push automatically. The sections below record the intended behaviour and implementation checks.
 
 ### Boundaries Around the Lab Code
 
 - Preserve route URLs, form field names, HTTP methods, status codes, the cart session format and existing checkout behaviour. Checkout still asks for a customer ID; login is not a new prerequisite for placing an order.
 - Preserve authentication checks, parameter binding, connection cleanup, order validation and price rechecking, saved-price calculations, and shipment transaction/rollback logic. Keep the teaching code and TODO separators recognizable; avoid unrelated refactoring.
 - Change route HTML only where the shared layout cannot provide the needed presentation. Keep styling out of SQL and transaction blocks.
-- Limit database-facing additions to catalogue setup, image/category fields for presentation, parameterized category filtering, and correct PNG/JPEG response types. Explain any additional required change before expanding scope.
+- Limit database-facing additions to catalogue and Gruk demo-account setup, image/category fields for presentation, parameterized category filtering, and correct PNG/JPEG response types. Explain any additional required change before expanding scope.
 - Do not add quantity editing, cart removal, registration, payment handling, stock reservation, administrator roles or other new shopping features during this pass.
 
 ### Shared Layout and Files
@@ -115,7 +121,7 @@ This is the implementation plan, not a claim that the frontend is complete. Keep
 - Use one `static/css/shop.css` and one small `static/js/gruk.js`. Keep colours, spacing, typography and widths shared. Start with roughly 40 px outer wood margins on desktop.
 - Keep the header consistent: ELF EARS ONLY sign, Shop, Cart, Orders, My Account, Admin and Login/Logout. Show the signed-in identity. Admin links to the existing sales report; it does not imply a new role system.
 - Have `/` reuse the shop listing renderer so the landing page and `/listprod` use the same product query, controls and layout. Preserve `/listprod` and its `productName` parameter for existing links and tests.
-- Keep all headings, buttons, prices and bubble text as HTML. Make the sign, counter edge and panels with CSS and existing textures. Use local/system fonts initially; no additional framework or asset generation is needed.
+- Keep all headings, buttons, prices and bubble text as HTML. Use the selected generated wood and parchment artwork for the sign, counter edge and panels, fitted with CSS and the shared SVG rail. Use local/system fonts and no additional frontend framework.
 - Preserve full-resolution source PNGs. If needed, create smaller display copies under `static/images/web/`, record their source relationship in the asset log, and use the smaller files in pages and database image data. Preserve transparency and aspect ratio; use contained product images with reserved dimensions.
 - Keep numeric money calculations unchanged. Format whole amounts without `.00` for themed display and retain two decimals for fractional amounts. Add the 32 px ear icon and an accessible currency label; never round away stored fractions.
 
@@ -155,7 +161,7 @@ This is the implementation plan, not a claim that the frontend is complete. Keep
 ### Animation and Readability
 
 - Implement the speech behaviour above only after the static shop is usable. Keep word wrapping normal even when individual letters use spans; reserve the full quote's layout while it types so words do not jump around.
-- Keep one complete accessible sentence separate from the decorative animated letters. Do not have screen readers read individual letter spans or announce every automatic change. Pause during typing should reveal the complete current quote and stop rotation/jitter; Resume starts a fresh reading interval.
+- Keep one complete accessible sentence separate from the decorative animated letters. Do not have screen readers read individual letter spans or announce every automatic change.
 - With JavaScript disabled, the default quote, navigation, search, filters and checkout remain functional. Reduced-motion mode has complete static text and no letter jitter or automatic rotation.
 - Use the desktop composition from the mockups. Keep Gruk from covering text or controls; mobile navigation, stacked mobile layouts and phone-specific grid changes are outside this pass.
 - Use visible keyboard focus, labelled fields, descriptive product-image alternatives and decorative-image empty alternatives. Keep readable contrast and touch-sized controls. Wrap wide reports in local horizontal scrolling rather than making the entire page overflow.
@@ -169,8 +175,8 @@ This is the implementation plan, not a claim that the frontend is complete. Keep
 5. Run the complete Lab 7/8 suite after integration. Add focused coverage for combined category/name filtering and repeatable theme setup. Update presentation-sensitive assertions to inspect product content rather than all page images, and to accept the intended currency markup; retain checks of actual prices, image bytes, authentication and rollback behaviour.
 6. Verify setup twice in a disposable test database or with recorded before/after data: no duplicate categories, identical mapped content, and no further changes to converted order prices/totals on the second run. Check that each converted sample total equals its saved lines, later orders stay untouched, and order references, quantities, dates, inventory and shipments remain unchanged. Check that reset plus theme works separately; never exercise destructive reset against unprotected project data.
 7. Walk through search -> details -> repeated cart additions -> checkout -> saved order, plus changed prices, empty/no-match/missing-product states, login/logout, customer information and sales. Use disposable records for shipment checks; retain the supplied order 1/order 3 demonstration instructions for freshly loaded lab data.
-8. Inspect the actual pages at the intended desktop demonstration window size, using keyboard navigation, reduced motion and JavaScript disabled. Check image requests, image content types, layout overflow, quote timing and pause/resume. All important actions must be usable and errors understandable. Mobile layout testing is outside this pass.
-9. Update README's stale TODO/login-failure text, setup instructions and the grouped frontend provenance entry with the files actually changed and checks actually completed. Review the final diff specifically for unintended edits to protected backend logic.
+8. Inspect the actual pages at the intended desktop demonstration window size, using keyboard navigation, reduced motion and JavaScript disabled. Check image requests, image content types, layout overflow, quote timing and hover cooldown. All important actions must be usable and errors understandable. Mobile layout testing is outside this pass.
+9. Keep README's setup instructions and the grouped frontend provenance entry current with the files actually changed and checks actually completed. Review the final diff specifically for unintended edits to protected backend logic.
 
 ### Frontend Provenance
 

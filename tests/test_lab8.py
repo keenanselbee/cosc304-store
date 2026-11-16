@@ -44,6 +44,7 @@ class Lab8Tests(DatabaseTest):
             file_response = self.client.get(file_url)
             self.assertEqual(file_response.status_code, 200)
             self.assertTrue(file_response.mimetype.startswith("image/"))
+            file_response.close()
         image = self.client.get(binary_url)
         self.assertEqual(image.status_code, 200)
         self.assertEqual(image.data, bytes(image_data))
@@ -59,7 +60,7 @@ class Lab8Tests(DatabaseTest):
 
     def test_invalid_products_and_missing_images(self):
         product_id, name, price = self.create_product("no image", Decimal("1.23"))
-        self.assertFalse(Page(self.client.get(f"/product?id={product_id}")).images)
+        self.assertFalse(Page(self.client.get(f"/product?id={product_id}")).product_images)
         self.assertEqual(self.client.get(f"/displayImage?id={product_id}").status_code, 404)
         for route in ("/product", "/displayImage"):
             for value in ("", "abc", "0", "-1", "1.5", "2147483648", "1 OR 1=1"):
@@ -140,7 +141,7 @@ class Lab8Tests(DatabaseTest):
         positions = []
         for day, total in sorted(totals.items()):
             self.assertEqual(text.count(str(day)), 1)
-            self.assertRegex(text, re.escape(str(day)) + r"\s+\$?" + re.escape(f"{total:.2f}"))
+            self.assertRegex(text, re.escape(str(day)) + r"\s+" + re.escape(f"{total:.2f}".removesuffix(".00")) + r"(?:\s|$)")
             positions.append(text.index(str(day)))
         self.assertEqual(positions, sorted(positions))
 

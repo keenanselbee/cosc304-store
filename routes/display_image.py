@@ -31,7 +31,10 @@ def display_image():
         # --------------------------------
         # send the image
         image_data = bytes(row[0])
-        return Response(image_data, mimetype="image/jpeg")
+        image_type = "image/jpeg"
+        if image_data.startswith(b"\x89PNG"):
+            image_type = "image/png"
+        return Response(image_data, mimetype=image_type)
         # --------------------------------
     except Exception:
         current_app.logger.exception("Unable to load database image")

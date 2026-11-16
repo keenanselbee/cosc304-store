@@ -43,7 +43,8 @@ class Lab7Tests(DatabaseTest):
                 actual = {int(parse_qs(urlparse(link).query)["id"][0]) for link in page.links
                           if urlparse(link).path == "/addcart"}
                 expected = {row[0] for row in read_rows(
-                    "SELECT productId FROM product WHERE productName LIKE ?", [f"%{term}%"])}
+                    "SELECT p.productId FROM product p JOIN category c ON p.categoryId = c.categoryId "
+                    "WHERE p.productName LIKE ? AND c.categoryName IN ('Weapons', 'Armour', 'Potions')", [f"%{term}%"])}
                 self.assertEqual(actual, expected)
         for term in (self.token + "missing", "' OR 1=1 --"):
             response = self.client.get("/listprod", query_string={"productName": term})

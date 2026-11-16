@@ -3,7 +3,9 @@
 import re
 from decimal import Decimal, InvalidOperation
 
-from flask import Blueprint, redirect, request, session, url_for
+from flask import Blueprint, redirect, request, session, url_for, current_app
+from db import get_connection
+from html_utils import html_page
 
 bp = Blueprint("addcart", __name__)
 
@@ -23,6 +25,24 @@ def add_to_cart():
         return ('Invalid product information. <a href="/listprod">Return to products</a>', 400)
     if not name.strip() or not valid_price:
         return ('Invalid product information. <a href="/listprod">Return to products</a>', 400)
+
+    # keep retired gear out of new carts
+    connection = None
+    try:
+        connection = get_connection()
+        row = connection.cursor().execute(
+            "SELECT c.categoryName FROM product p JOIN category c ON p.categoryId = c.categoryId "
+            "WHERE p.productId = ?", [int(product_id)]).fetchone()
+        if row is not None and row[0] == "Past Stock":
+            return html_page("Past Stock", "<h1>This item is no longer offered</h1>"
+                             '<p><a href="/listprod">Browse current gear</a></p>'), 400
+    except Exception:
+        current_app.logger.exception("Unable to check product availability")
+        return html_page("Cart Error", "<h1>Unable to add this item</h1>"
+                         '<p><a href="/listprod">Return to products</a></p>'), 500
+    finally:
+        if connection is not None:
+            connection.close()
 
     # Flask stores the cart in a signed browser session cookie. Reassign the
     # mapping so Flask persists changes to nested session values.

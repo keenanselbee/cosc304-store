@@ -73,7 +73,7 @@ def list_orders():
 
             output.append("<hr>")
 
-        return html_page("YOUR NAME Grocery Order List", "".join(output))
+        return html_page("Orders", "".join(output))
     except Exception:
         # Log the actual error in the terminal; do not display credentials to users.
         current_app.logger.exception("Unable to list orders")

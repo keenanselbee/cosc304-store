@@ -22,6 +22,7 @@ class Page(HTMLParser):
         super().__init__()
         self.links = []
         self.images = []
+        self.product_images = []
         self.words = []
         self.feed(response.get_data(as_text=True))
         self.text = " ".join(self.words)
@@ -32,6 +33,8 @@ class Page(HTMLParser):
             self.links.append(attributes.get("href", ""))
         if tag == "img":
             self.images.append(attributes.get("src", ""))
+            if attributes.get("class") in ("main-product", "gruk-product"):
+                self.product_images.append(attributes.get("src", ""))
 
     def handle_data(self, text):
         self.words.extend(text.split())
@@ -106,8 +109,10 @@ class DatabaseTest(unittest.TestCase):
         connection = get_connection()
         try:
             cursor = connection.cursor()
-            cursor.execute("INSERT INTO product (productName, productPrice) "
-                           "OUTPUT INSERTED.productId VALUES (?, ?)", [name, price])
+            cursor.execute("SELECT categoryId FROM category WHERE categoryName = ?", ["Weapons"])
+            category_id = cursor.fetchone()[0]
+            cursor.execute("INSERT INTO product (productName, productPrice, categoryId) "
+                           "OUTPUT INSERTED.productId VALUES (?, ?, ?)", [name, price, category_id])
             product_id = cursor.fetchone()[0]
             self.product_ids.append(product_id)
             if stock is not None:

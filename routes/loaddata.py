@@ -6,6 +6,7 @@ from pathlib import Path
 from flask import Blueprint, current_app, request
 from db import get_connection
 from html_utils import html_page
+from theme import apply_theme
 
 bp = Blueprint("loaddata", __name__)
 
@@ -35,7 +36,7 @@ def render_status(message="", counts=None):
         <h2>COSC 304 Store Database</h2>{message}{summary}<hr>
         <h3>Reset Database</h3>
         <p>Resetting deletes orders, customers, products, and other changes,
-        and restores the original sample data.</p>
+        and restores the sample data with Gruk's themed catalogue and orders.</p>
         <form method="post" action="/loaddata"
           onsubmit="return confirm('Reset database and delete existing data?');">
           <input type="submit" value="Reset Database"></form>
@@ -70,6 +71,11 @@ def reset_database():
                 pass
         connection.close()
         connection = None
+        try:
+            apply_theme()
+        except Exception:
+            current_app.logger.exception("Sample data reset but theme setup failed")
+            return render_status("<p>Sample data was reset, but theme setup failed. Check server logs.</p>"), 500
         return render_status("<p><strong>Database reset completed successfully.</strong></p>",
                              get_counts())
     except Exception:

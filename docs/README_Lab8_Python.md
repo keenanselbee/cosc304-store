@@ -1,5 +1,7 @@
 # COSC 304 — Lab 8 Python/Flask starter add-on
 
+> Original instructor starter reference. The installation steps and TODO descriptions below describe the supplied add-on before implementation, not the current store. For current setup and usage, see the [project README](../README.md).
+
 This package adds the **Lab 8 Flask routes and product images** to your existing Lab 7 Python web store. It is **not a standalone project**.
 
 ## Install

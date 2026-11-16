@@ -10,5 +10,5 @@
 
 - The `static/images/` entry in `docs/PROVENANCE.md` covers AI-generated artwork in that folder and its subfolders.
 - Keep the website image provenance entry as a general statement about the AI tool, purpose and validation. Do not list every asset or expand the entry whenever an image is added.
-- Record individual asset filenames, prompts and any asset-specific validation notes in `docs/lab8-asset-prompts.json`. Update the general provenance entry only when the source, tool or overall process changes.
+- Record individual asset filenames, prompts and any asset-specific validation notes in `docs/lab8-asset-prompts.json` or equivalent lab file. Update the general provenance entry only when the source, tool or overall process changes.
 - Record any externally sourced or manually created images separately rather than including them under the AI-generated credit.

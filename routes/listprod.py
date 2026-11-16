@@ -1,9 +1,8 @@
 """Question 2 (10 marks): display/search products and provide cart links."""
 
-from flask import Blueprint, request, current_app
-from flask import url_for
+from flask import Blueprint, request, current_app, render_template
 from db import get_connection
-from html_utils import escape_html, format_currency, html_page
+from html_utils import format_currency, html_page, image_source
 
 bp = Blueprint("listprod", __name__)
 
@@ -11,62 +10,38 @@ bp = Blueprint("listprod", __name__)
 @bp.get("/listprod")
 def list_products():
     name = request.args.get("productName", "")
-    form = ("<h1>Search for the products you want to buy:</h1>"
-            '<form method="get" action="/listprod">'
-            f'<input type="text" name="productName" size="50" value="{escape_html(name)}">'
-            '<input type="submit" value="Submit"> '
-            '<input type="reset" value="Reset"> '
-            '(Leave blank for all products)</form>')
-
+    category = request.args.get("category", "")
+    products = []
+    error = None
+    status = 200
     connection = None
     try:
+        if category not in ("", "Weapons", "Armour", "Potions"):
+            return html_page("Product Search", "<h1>Unknown category</h1>"
+                             '<p><a href="/listprod">Browse all gear</a></p>'), 400
         connection = get_connection()
         cursor = connection.cursor()
-
-        sql = "SELECT productId, productName, productPrice FROM product"
-
+        sql = """SELECT p.productId, p.productName, p.productPrice, p.productImageURL, c.categoryName
+                 FROM product p JOIN category c ON p.categoryId = c.categoryId
+                 WHERE c.categoryName IN (?, ?, ?)"""
+        parameters = ["Weapons", "Armour", "Potions"]
         if name.strip():
-            cursor.execute(sql + " WHERE productName LIKE ?", f"%{name}%")
-        else:
-            cursor.execute(sql)
-
+            sql += " AND p.productName LIKE ?"
+            parameters.append(f"%{name}%")
+        if category:
+            sql += " AND c.categoryName = ?"
+            parameters.append(category)
+        cursor.execute(sql + " ORDER BY p.productId", parameters)
         products = cursor.fetchall()
-        output = []
-
-        if not products:
-            output.append("<p>No matches</p>")
-        else:
-            output.append(
-                '<table border="1">'
-                "<tr><th>ID</th><th>Name</th><th>Price</th><th>Cart</th></tr>")
-
-            for product_id, product_name, price in products:
-                link = url_for(
-                    "addcart.add_to_cart",
-                    id=product_id,
-                    name=product_name,
-                    price=price)
-
-                # --------------------------------
-                # link the name to product details
-                product_link = url_for("product.product_details", id=product_id)
-                product_name_link = (f'<a href="{escape_html(product_link)}">'
-                                     f'{escape_html(product_name)}</a>')
-                # --------------------------------
-
-                output.append(
-                    f"<tr><td>{product_id}</td>"
-                    f"<td>{product_name_link}</td>"
-                    f"<td>{format_currency(price)}</td>"
-                    f'<td><a href="{escape_html(link)}">Add to cart</a></td></tr>')
-
-            output.append("</table>")
-
-        return html_page("YOUR NAME Grocery", form + "".join(output))
     except Exception:
         current_app.logger.exception("Unable to list products")
-        return html_page("Product Search Error", form +
-                         "<p>Unable to search products.</p>"), 500
+        error = "Unable to search products"
+        status = 500
     finally:
         if connection is not None:
             connection.close()
+
+    # the template links names to details and uses the actual cart values
+    body = render_template("shop.html", name=name, category=category, products=products,
+                           error=error, format_currency=format_currency, image_source=image_source)
+    return html_page("Shop", body, shop=True), status

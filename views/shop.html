@@ -1,0 +1,53 @@
+<section class="shop-scene" aria-label="Welcome to Gruk's shop">
+  <div class="shop-title">
+    <h1>Gruk's<br>Glorious Gear</h1>
+    <p class="tagline">Sharp axes. Strong potions. No refunds.</p>
+  </div>
+  <div class="speech-bubble">
+    <p id="gruk-quote">Gruk is all ears, financially speaking.</p>
+  </div>
+  <img class="welcome-gruk" src="/static/images/gruk.png" alt="Gruk, a grinning orc merchant behind his counter">
+  <div class="counter" aria-hidden="true"></div>
+  <svg class="welcome-gruk gruk-hands" viewBox="0 0 1448 1086" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false">
+    <defs>
+      <clipPath id="gruk-elbow"><path d="M0 650H440V850L365 950 315 980 260 1020H0Z"/></clipPath>
+      <clipPath id="gruk-hand"><path d="M1070 908C1040 925 1015 965 1009 1005C1005 1025 1010 1045 1040 1048L1350 1086 1400 900Z"/></clipPath>
+    </defs>
+    <!-- stretch the elbow below the wrist to meet the counter -->
+    <g transform="translate(0 -16.25) scale(1 1.025)"><image href="/static/images/gruk.png" width="1448" height="1086" clip-path="url(#gruk-elbow)"/></g>
+    <g transform="translate(0 -8)"><image href="/static/images/gruk.png" width="1448" height="1086" clip-path="url(#gruk-hand)"/></g>
+  </svg>
+</section>
+<section class="shop-stock" aria-label="Shop products">
+  <form class="shop-filters" method="get" action="/listprod">
+    <div class="search-box">
+      <label class="sr-only" for="product-search">Search products</label>
+      <input id="product-search" type="search" name="productName" value="{{ name }}" placeholder="Search products…">
+      <button type="submit" name="category" value="{{ category }}">Search</button>
+    </div>
+    <div class="category-buttons" aria-label="Product category">
+      {% for choice in ['', 'Weapons', 'Armour', 'Potions'] %}
+      <button class="category-button {{ 'selected' if category == choice else '' }}" type="submit" name="category" value="{{ choice }}" aria-pressed="{{ 'true' if category == choice else 'false' }}">{{ choice or 'All' }}</button>
+      {% endfor %}
+    </div>
+    {% if name or category %}<a class="reset-search" href="/listprod">Clear</a>{% endif %}
+  </form>
+  {% if error %}<p class="empty-message" role="alert">{{ error }}</p>
+  {% elif not products %}<div class="empty-message"><h2>No matches</h2><p>Gruk checked shelves. Even the suspicious shelf.</p><a href="/listprod">Browse all gear</a></div>
+  {% else %}
+  <div class="product-grid">
+    {% for product in products %}
+    <article class="product-card" data-product-id="{{ product.productId }}">
+      <a class="product-art" href="{{ url_for('product.product_details', id=product.productId) }}" tabindex="-1" aria-hidden="true">
+        {% if product.productImageURL %}<img src="{{ image_source(product.productImageURL) }}" alt="" loading="lazy" width="300" height="260">
+        {% else %}<span class="no-art">Gruk misplaced the picture</span>{% endif %}
+      </a>
+      <p class="product-category">{{ product.categoryName }}</p>
+      <h2><a href="{{ url_for('product.product_details', id=product.productId) }}">{{ product.productName }}</a></h2>
+      {{ format_currency(product.productPrice)|safe }}
+      <a class="button" href="{{ url_for('addcart.add_to_cart', id=product.productId, name=product.productName, price=product.productPrice) }}">Add to Cart<span class="sr-only">: {{ product.productName }}</span></a>
+    </article>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>

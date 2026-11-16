@@ -2,7 +2,7 @@
 
 import os
 
-from flask import Flask, render_template, session
+from flask import Flask
 
 from routes import addcart, checkout, listorder, listprod, loaddata, order, showcart
 from routes import admin, customer, display_image, login, logout, product, ship, validate_login
@@ -15,7 +15,7 @@ app.secret_key = os.getenv("FLASK_SECRET_KEY", "cosc304-local-lab-session-secret
 
 @app.get("/")
 def index():
-    return render_template("index.html", user_name=session.get("authenticatedUser"))
+    return listprod.list_products()
 
 
 for module in (loaddata, listorder, listprod, addcart, showcart, checkout, order,
