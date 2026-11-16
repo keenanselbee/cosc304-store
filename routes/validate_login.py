@@ -10,15 +10,29 @@ bp = Blueprint("validate_login", __name__)
 def validate_login():
     username = request.form.get("username", "").strip()
     password = request.form.get("password", "")
-    valid_login = False  # Nobody is authenticated until the TODO is completed.
+    valid_login = False  # assume login fails
 
     if username and password:
-        # TODO: Open a database connection using get_connection().
-        # TODO: Use a parameterized SQL query (with ? placeholders) to
-        #       check customer.userid and customer.password.
-        # TODO: Set valid_login = True only if a matching row exists.
-        #       Close the cursor/connection. Handle database errors.
-        pass
+        # --------------------------------
+        # check the login
+        connection = None
+        cursor = None
+        try:
+            connection = get_connection()
+            cursor = connection.cursor()
+            query = """SELECT customerId
+                        FROM customer
+                        WHERE userid = ? AND password = ?"""
+            cursor.execute(query, [username, password])
+            valid_login = cursor.fetchone() is not None
+        except Exception:
+            current_app.logger.exception("Unable to check login")
+        finally:
+            if cursor is not None:
+                cursor.close()
+            if connection is not None:
+                connection.close()
+        # --------------------------------
 
     if valid_login:
         session["authenticatedUser"] = username
@@ -26,5 +40,5 @@ def validate_login():
         return redirect(url_for("index"))
 
     session.pop("authenticatedUser", None)
-    session["loginMessage"] = "Invalid user ID or password."
+    session["loginMessage"] = "Invalid username or password."
     return redirect(url_for("login.login_page"))
