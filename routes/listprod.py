@@ -47,9 +47,16 @@ def list_products():
                     name=product_name,
                     price=price)
 
+                # --------------------------------
+                # link the name to product details
+                product_link = url_for("product.product_details", id=product_id)
+                product_name_link = (f'<a href="{escape_html(product_link)}">'
+                                     f'{escape_html(product_name)}</a>')
+                # --------------------------------
+
                 output.append(
                     f"<tr><td>{product_id}</td>"
-                    f"<td>{escape_html(product_name)}</td>"
+                    f"<td>{product_name_link}</td>"
                     f"<td>{format_currency(price)}</td>"
                     f'<td><a href="{escape_html(link)}">Add to cart</a></td></tr>')
 

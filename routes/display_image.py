@@ -28,11 +28,11 @@ def display_image():
         if row[0] is None:
             return "No database image for this product", 404
 
-        # TODO: Convert the binary column value to bytes if necessary.
-        # TODO: Return an HTTP response containing those bytes with the
-        #       MIME type image/jpeg. Do NOT put image bytes in html_page().
-        #       Hint: Flask's Response(data, mimetype="image/jpeg").
-        return "Image streaming not implemented yet", 501
+        # --------------------------------
+        # send the image
+        image_data = bytes(row[0])
+        return Response(image_data, mimetype="image/jpeg")
+        # --------------------------------
     except Exception:
         current_app.logger.exception("Unable to load database image")
         return "Unable to retrieve product image", 500
