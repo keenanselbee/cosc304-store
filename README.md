@@ -33,15 +33,23 @@ docker compose up -d --build
 | Order list | http://localhost/listorder |
 | Shopping cart | http://localhost/showcart |
 | Checkout | http://localhost/checkout |
-| Product details (TODO) | http://localhost/product?id=1 |
+| Product details | http://localhost/product?id=1 |
 | Login form | http://localhost/login |
 | Logout | http://localhost/logout |
-| Customer information (TODO) | http://localhost/customer |
-| Daily sales report (TODO) | http://localhost/admin |
-| Database image (TODO) | http://localhost/displayImage?id=1 |
-| Shipment (TODO) | http://localhost/ship?orderId=1 |
+| Customer information | http://localhost/customer |
+| Daily sales report | http://localhost/admin |
+| Database image | http://localhost/displayImage?id=1 |
+| Shipment | http://localhost/ship?orderId=1 |
 
-The [Lab 8 starter add-on](docs/README_Lab8_Python.md) is integrated. Its feature TODOs remain unfinished, and login intentionally fails until credential validation is implemented. Existing Lab 7 shopping features remain available. The database has not been reset for this integration.
+**Tests:** With both Docker services running and the lab database loaded, run:
+
+```powershell
+docker exec -w /app cosc304-python python -m unittest discover -s tests -v
+```
+
+`tests/test_lab7.py` checks search, cart and orders.  
+`tests/test_lab8.py` checks images, login, customer information, sales and shipments.  
+Shared helpers are in `tests/support.py`.
 
 **Useful commands:**
 
