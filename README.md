@@ -38,23 +38,29 @@ Product IDs, order quantities and inventory quantities stay the same.
 Theme setup gives sample customer 1 Gruk's name and fictional shop contact details,
 preserves its existing orders, and restores the account after a database reset.
 
-**Application pages:**
+**Application routes:**
 
-| Page | URL |
-|---|---|
-| Store | http://localhost/ |
-| Database connection check | http://localhost/loaddata |
-| Product list | http://localhost/listprod |
-| Order list | http://localhost/listorder |
-| Shopping cart | http://localhost/showcart |
-| Checkout | http://localhost/checkout |
-| Product details | http://localhost/product?id=1 |
-| Login form | http://localhost/login |
-| Logout | http://localhost/logout |
-| Customer information | http://localhost/customer |
-| Daily sales report | http://localhost/admin |
-| Database image | http://localhost/displayImage?id=1 |
-| Shipment | http://localhost/ship?orderId=1 |
+Base URL: `http://localhost`. GET routes can be opened in the browser; POST routes are submitted through the application's forms.
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| GET | `/` | Show the shop with product search and category filters |
+| GET | `/listprod` | List products; accepts optional `productName` and `category` query parameters |
+| GET | `/product?id=1` | Show one product's details and both image types |
+| GET | `/displayImage?id=1` | Return the product's database image as PNG or JPEG |
+| GET | `/addcart` | Add an item to the session cart using `id`, `name` and `price` query parameters |
+| GET | `/showcart` | Show cart items, quantities and totals |
+| GET | `/checkout` | Show the customer-ID checkout form |
+| POST | `/order` | Validate checkout, confirm changed prices when needed and save the order |
+| GET | `/listorder` | Show saved orders and their items |
+| GET | `/login` | Show the login form |
+| POST | `/validateLogin` | Check credentials and set the authenticated session identity |
+| GET | `/logout` | Log out while preserving the cart |
+| GET | `/customer` | Show the logged-in customer's information; requires login |
+| GET | `/admin` | Show daily sales totals; requires login |
+| GET | `/ship?orderId=1` | Process a shipment from warehouse 1 and update inventory on success |
+| GET | `/loaddata` | Check the database connection and show the reset form |
+| POST | `/loaddata` | Delete current store data and restore the themed sample data |
 
 **Tests:** With both Docker services running and the lab database loaded, run:
 
