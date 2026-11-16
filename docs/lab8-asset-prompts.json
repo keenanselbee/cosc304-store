@@ -16,6 +16,295 @@
       "path": "static/images/parchment-background.png",
       "transparent_background": false,
       "prompt": "Use case: stylized-concept. Asset type: reusable website content-panel texture. Using supplied mockup A only as a style and material reference, create a square flat seamless warm cream parchment texture matching its pale product-card backgrounds. Very subtle hand-painted paper fibres, tiny irregularities and faint warm tan mottling, light and even across the full image so dark HTML text stays highly readable. Restrained fantasy-game parchment, not photorealistic grunge. Fills entire square edge to edge; intended to tile in both directions with matching opposite edges. No dark edges, vignette, outline, tears, burnt corners, rolled scroll, border, folds, creases, writing, text, objects, character, symbols or shadows. This is plain material texture only, not a card, not a UI screenshot. Nearly uniform pale cream field with fine quiet surface detail."
+    },
+    {
+      "path": "static/images/elf-ear.png",
+      "transparent_background": true,
+      "reference": "Peach elf-ear preview supplied in the planning conversation",
+      "prompt_summary": "Recolour the supplied long cartoon elf ear purple while preserving its silhouette, orientation, painted fantasy style and transparent background. No blood.",
+      "note": "Summary of the earlier edit request; its exact generation prompt is not retained here. Full-resolution clean source artwork."
+    },
+    {
+      "path": "static/images/elf-ear-bloody.png",
+      "transparent_background": true,
+      "reference": "static/images/elf-ear.png, followed by temporary blood-treatment previews",
+      "edit_history_summary": "Added blood to the clean purple ear, then enlarged the patch and drips for readability at 28–32 px. The final edit darkened the bright scarlet blood to crimson.",
+      "prompt": "Use case: precise-object-edit. Edit target: supplied purple elf ear currency icon with bold red blood. Change ONLY the blood color: make it a bit darker, rich crimson red instead of the current very bright scarlet. Aim for a main midtone around #b51c28 with darker burgundy edges and restrained lighter red highlights. Keep the blood easily visible at 28–32 pixel icon size: do not make it nearly black or dull purple. Preserve EXACTLY the broad blood patch coverage, chunky rounded drips, ear shape, composition, lavender purple colors, dark plum outline, painted cartoon fantasy style and transparent background. No added detail, objects, text or background. This is a small color refinement, not a redesign. Actual alpha transparency."
+    },
+    {
+      "path": "static/images/products/slightly-used-war-axe-gruk.png",
+      "source_filename": "01-slightly-used-war-axe-gruk-a.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Single-headed iron war axe. Broad curved nicked blade with angular back, worn dark steel with restrained bronze rivets, straight brown leather-wrapped wooden handle, small deep red cloth tie near pommel and iron pommel ring. A usable one-handed axe, believable head-to-handle ratio, not a huge toy blade.\nReference1 is the EXACT product; preserve its design, materials and proportions. Reference2 is Gruk's identity and art style reference. Keep same olive-green orc, swept-back dark hair tied with red band, large ivory lower tusks, dark pointed beard, thick eyebrows, worn brown leather merchant apron with brass square buckles and patched pocket, brown leather wrist guards, cream shoulder towel with two red stripes. Slightly more realistic proportions than original mascot, expressive cartoon face. Pose: Proud salesman pose presenting the axe upright beside his face, eyebrows lifted and hilariously smug grin, one hand gripping shaft and other palm beneath pommel.. Show three-quarter body unless pose requires full body, complete item and both hands visible. Character with only this product, no extra props except a removed potion cork. For drinking bottle must be uncorked at lips, hand gripping neck or body naturally; preserve bottle identity despite changing angle and liquid tilt. No words.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "0f48712a1c979382bd4c982dc0f0df8dd29525c52f64d388bf5014a4f5e4c40a",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "01-slightly-used-war-axe-item-a.png",
+        "gruk.png"
+      ]
+    },
+    {
+      "path": "static/images/products/slightly-used-war-axe.png",
+      "source_filename": "01-slightly-used-war-axe-item-b.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Single-headed iron war axe. Broad curved nicked blade with angular back, worn dark steel with restrained bronze rivets, straight brown leather-wrapped wooden handle, small deep red cloth tie near pommel and iron pommel ring. A usable one-handed axe, believable head-to-handle ratio, not a huge toy blade.\nReference is the EXACT item design to preserve. Create an alternative item-only catalogue image of this SAME object, slightly different three-quarter angle and light, not a redesign. Keep all construction, colours, markings and proportions consistent. No character or hands. Complete object visible; boots a matching pair.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "c71034e2d4c9915950a3ca6e226339996443adb4a1c195040b771dce149c013b",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "01-slightly-used-war-axe-item-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/the-bigger-argument-gruk.png",
+      "source_filename": "02-the-bigger-argument-gruk-a.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Heavy double-headed war axe with two symmetrical crescent steel blades, central riveted bronze collar, a long thick dark wooden handle wrapped in brown leather, subtle deep red wrap at grip end. Believable two-handed weapon with handle long enough to balance its heavy head; same worn metal and leather material family as single axe.\nReference1 is the EXACT product; preserve its design, materials and proportions. Reference2 is Gruk's identity and art style reference. Keep same olive-green orc, swept-back dark hair tied with red band, large ivory lower tusks, dark pointed beard, thick eyebrows, worn brown leather merchant apron with brass square buckles and patched pocket, brown leather wrist guards, cream shoulder towel with two red stripes. Slightly more realistic proportions than original mascot, expressive cartoon face. Pose: Gruk proudly holding the two-handed axe vertically like a treasured trophy, puffing chest, one eyebrow raised, both hands on shaft, entire axe visible.. Show three-quarter body unless pose requires full body, complete item and both hands visible. Character with only this product, no extra props except a removed potion cork. For drinking bottle must be uncorked at lips, hand gripping neck or body naturally; preserve bottle identity despite changing angle and liquid tilt. No words.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "24c96b7f877c1b136965c4c93d8a6c315cd9c0120ef2ff386ec5ac46a57beeb4",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "02-the-bigger-argument-item-a.png",
+        "01-slightly-used-war-axe-gruk-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/the-bigger-argument.png",
+      "source_filename": "02-the-bigger-argument-item-a.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Heavy double-headed war axe with two symmetrical crescent steel blades, central riveted bronze collar, a long thick dark wooden handle wrapped in brown leather, subtle deep red wrap at grip end. Believable two-handed weapon with handle long enough to balance its heavy head; same worn metal and leather material family as single axe.\nGenerate ONE item-only catalogue image. No character, no hands. Three-quarter view showing the complete object; boots show one matching pair. Reference, when supplied, is for consistent material rendering and art style only, do not copy its weapon into this different product.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "897a572d92665e986da571a26bc31d805d8324895086e86387284a931051e0ef",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "01-slightly-used-war-axe-item-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/politely-dented-shield-gruk.png",
+      "source_filename": "03-politely-dented-shield-gruk-b.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Round shield of five or six warm dark oak planks, riveted iron rim, central hammered iron boss with one visible dent, two plain reinforcing metal bands. Realistic shield diameter and thickness, worn usable equipment, no symbols or lettering.\nReference1 is the EXACT product; preserve its design, materials and proportions. Reference2 is Gruk's identity and art style reference. Keep same olive-green orc, swept-back dark hair tied with red band, large ivory lower tusks, dark pointed beard, thick eyebrows, worn brown leather merchant apron with brass square buckles and patched pocket, brown leather wrist guards, cream shoulder towel with two red stripes. Slightly more realistic proportions than original mascot, expressive cartoon face. Pose: Gruk presenting shield front in one hand and proudly pointing at its dent with the other, ridiculous salesman wink and toothy grin, treating the dent as its best feature.. Show three-quarter body unless pose requires full body, complete item and both hands visible. Character with only this product, no extra props except a removed potion cork. For drinking bottle must be uncorked at lips, hand gripping neck or body naturally; preserve bottle identity despite changing angle and liquid tilt. No words.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "d3fdff9bd13d4931262a9b1555db80f7932ec40aa1f82a0ee4da54f091d1cb5b",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "03-politely-dented-shield-item-a.png",
+        "01-slightly-used-war-axe-gruk-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/politely-dented-shield.png",
+      "source_filename": "03-politely-dented-shield-item-a.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Round shield of five or six warm dark oak planks, riveted iron rim, central hammered iron boss with one visible dent, two plain reinforcing metal bands. Realistic shield diameter and thickness, worn usable equipment, no symbols or lettering.\nGenerate ONE item-only catalogue image. No character, no hands. Three-quarter view showing the complete object; boots show one matching pair. Reference, when supplied, is for consistent material rendering and art style only, do not copy its weapon into this different product.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "e1c8a05e8593ce772ffeb3f488795ffed16dc8aa0d48da51dfe5b1d15f3ac67e",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "01-slightly-used-war-axe-item-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/helmet-of-almost-wisdom-gruk.png",
+      "source_filename": "04-helmet-of-almost-wisdom-gruk-f-colour-matched.png",
+      "transparent_background": true,
+      "prompt": "COLOUR CORRECTION ONLY of image1 (Gruk wearing helmet and raising club). Image2 (Gruk shield pose) is the colour and tonal reference. Preserve image1 subject geometry EXACTLY: same three-quarter pose, facial expression, upward gaze, teeth/tusks, hair coming out under helmet, helmet shape and low ridge, club shape and raised arm, thumbs-up, all clothing details, outlines, framing and alpha. Do NOT alter any pose, object, anatomy, construction or proportions. Correct only palette, saturation and tones to match image2. Image1 is excessively yellow/orange and bright red: shift skin subtly from saturated golden yellow toward image2's muted warm olive-green, lower yellow saturation and slightly deepen skin shadows while preserving warm highlights. Apron, wristguards and straps should be rich worn dark brown like image2, less bright red/orange; retain all leather texture and stitching. Hair and beard should be dark brown with restrained warm highlights, not reddish copper. Helmet and club's metal band should be worn neutral dark iron/steel with warm edge reflections, not copper-coloured; brass rivets and buckles remain muted aged brass, not bright orange. Towel remains warm cream with muted brick-red stripes, avoid bleaching. Club wood remains natural brown, tone down excessive orange. Match overall exposure/contrast and painterly material rendering to image2 WITHOUT changing shape or adding shield. Keep transparent alpha background unchanged, no glow or backdrop, no text. Result should belong in same catalogue as reference2, retaining image1 completely except colour grading.",
+      "size_px": [
+        1181,
+        1331
+      ],
+      "sha256": "6da24c10d683ce4d256c255b768d24524a101a72406bf6d1dda41c8349682bb9",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "04-helmet-of-almost-wisdom-gruk-e-three-quarter-club.png",
+        "03-politely-dented-shield-gruk-b.png"
+      ]
+    },
+    {
+      "path": "static/images/products/helmet-of-almost-wisdom.png",
+      "source_filename": "04-helmet-of-almost-wisdom-item-c-straps.png",
+      "transparent_background": true,
+      "prompt": "Edit this standalone fantasy helmet product image to fix the inconsistent chin strap construction. Preserve the helmet design, low rounded iron dome, narrow central metal fin crest, brow band and brass rivets, angular flared cheek guards, worn steel texture, warm light, detailed slightly realistic fantasy cartoon rendering. Make an almost straight-on product view so both strap attachments can be clearly compared, whole helmet centred. The chin strap MUST have coherent real construction: exactly TWO brown leather strap segments of identical width and thickness, each anchored to the INSIDE lower edge of its corresponding cheek guard at the same relative height using matching stitched leather attachment tabs. One short segment carries a SINGLE simple rectangular brass tang buckle near the lower front centre. The longer segment curves down from the other cheek guard, passes through that buckle with ONE visible pin engaging ONE adjustment hole, and its short free tip passes neatly through ONE leather keeper on the buckle side. The fastened assembly forms ONE smooth U-shaped chin loop. Correct continuous leather paths, no branching, no doubled hanging loops, no additional interior strap crossing the face opening, no strap fused into metal, no floating buckle, no mysterious second strap. Show enough separation between leather layers at buckle to read how it fastens. Keep leather colour and edge stitching uniform on both segments; matching side attachment tabs, natural perspective. Interior is padded brown leather lining only, remove misleading horizontal cord across inner opening. Transparent alpha background, no head, no hands, no other objects, no labels. Full helmet crest and entire chin strap visible with generous transparent margin.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "2e3cdad182b1e500db6d7fd890d7ee9802f9d531398d7a2afe5074d461e45411",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "04-helmet-of-almost-wisdom-item-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/boots-of-strategic-retreat-gruk.png",
+      "source_filename": "05-boots-of-strategic-retreat-gruk-a.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Matching pair of practical mid-calf brown leather adventurer boots, thick stitched leather soles, modest brass square buckles and reinforced toes, worn leather creases. Believable foot proportions, no giant clown toes or excessively huge buckles. Both left and right boot shown.\nReference1 is the EXACT product; preserve its design, materials and proportions. Reference2 is Gruk's identity and art style reference. Keep same olive-green orc, swept-back dark hair tied with red band, large ivory lower tusks, dark pointed beard, thick eyebrows, worn brown leather merchant apron with brass square buckles and patched pocket, brown leather wrist guards, cream shoulder towel with two red stripes. Slightly more realistic proportions than original mascot, expressive cartoon face. Pose: Full-body Gruk wearing the matching boots with dark brown trousers under merchant apron, exaggerated tiptoe sneaking-away pose while glancing back with innocent grin, both boots fully visible.. Show three-quarter body unless pose requires full body, complete item and both hands visible. Character models ONLY this product. Empty hands unless holding this product or pointing. No bottles, potions, drinks, corks, other weapons, or extra equipment. Keep pose as specified above. No words.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "41fb8cb376bc77b29b3c3fe80ea2747109eaa761de116e2a5036dd0287b0af24",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "05-boots-of-strategic-retreat-item-a.png",
+        "01-slightly-used-war-axe-gruk-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/boots-of-strategic-retreat.png",
+      "source_filename": "05-boots-of-strategic-retreat-item-a.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Matching pair of practical mid-calf brown leather adventurer boots, thick stitched leather soles, modest brass square buckles and reinforced toes, worn leather creases. Believable foot proportions, no giant clown toes or excessively huge buckles. Both left and right boot shown.\nGenerate ONE item-only catalogue image. No character, no hands. Three-quarter view showing the complete object; boots show one matching pair. Reference, when supplied, is for consistent material rendering and art style only, do not copy its weapon into this different product.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "c3448c23bbde9d06fc13b7b6cb9ab1f9640e36c19fc5742f097bdba8d6040ee5",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "01-slightly-used-war-axe-item-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/suspicious-red-potion-gruk.png",
+      "source_filename": "06-suspicious-red-potion-gruk-c-fire-burp.png",
+      "transparent_background": true,
+      "prompt": "Edit the reference into another standalone transparent product illustration of the SAME Gruk and SAME red potion. Preserve character identity, detailed stylised fantasy game art, slightly realistic proportions, olive-green skin, swept dark ponytail with red band, ivory tusks, pointed dark beard, brown leather merchant apron with square brass buckles and patched pocket, leather wrist guards, cream towel with two red stripes. New pose: immediately AFTER taking a sip, Gruk holds the OPEN round ruby-red potion bottle upright away from his mouth at lower chest height, parchment red-cross tag facing viewer, some potion visibly missing. Other hand holds the removed cork. He has just accidentally BURPED a short unmistakable plume of bright RED FIRE from his open mouth, wide surprised eyes and raised eyebrows, funny embarrassed expression. Flame comes directly from mouth and extends sideways into clear space, predominantly crimson and scarlet outer tongues with orange bright inner flame, about one head-width long, a few sparks. Flame must be clearly FIRE not liquid or smoke, must not obscure eyes, bottle, hands or apron. No injury or burns, playful magical potion side effect. Keep bottle design consistent with reference. Slightly turn head for readable sideward flame, body three-quarter view. Reframe with generous clear margin around entire hair, elbows, bottle and complete flame; waist-up torso ending naturally at apron bottom. Single centred isolated asset, actual transparent alpha background, no scene, no text, no speech bubble, no watermark. Preserve visual quality and materials of reference.",
+      "size_px": [
+        1312,
+        1199
+      ],
+      "sha256": "8eaf2fe1d27a6ffca8c9e6b0f6f11cf234c75bda96360d53b007580e80b8a00b",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "06-suspicious-red-potion-gruk-b.png"
+      ]
+    },
+    {
+      "path": "static/images/products/suspicious-red-potion.png",
+      "source_filename": "06-suspicious-red-potion-item-a.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Clear round-bellied glass potion bottle, narrow neck, warm cork stopper, deep ruby-red liquid about three quarters full, leather cord holding small worn parchment tag with a simple red health cross symbol only, no words. Believable glass wall thickness, refraction and liquid surface, small hand-sized bottle.\nGenerate ONE item-only catalogue image. No character, no hands. Three-quarter view showing the complete object; boots show one matching pair. Reference, when supplied, is for consistent material rendering and art style only, do not copy its weapon into this different product.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "faa68d05879eb12580faceb23aa27e4cba242a0305d3d4bec1ed286a8a8f7d6a",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "01-slightly-used-war-axe-item-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/blue-thinking-juice-gruk.png",
+      "source_filename": "07-blue-thinking-juice-gruk-b-shorter-bottle.png",
+      "transparent_background": true,
+      "prompt": "Precise small edit of the reference Gruk blue potion illustration. The blue bottle is too tall. SHORTEN ONLY its elongated straight-sided glass BODY by about25 percent, keeping the same body width, rounded shoulders, neck and flared lip. Result is a modest slim hand-sized blue bottle, neither a very long flask nor a squat round jar. Preserve same glass material, sapphire liquid, leather neck cord and parchment gold-star tag. Keep bottle mouth exactly at Gruk's lips; the shortened base should end around just below his gripping little finger, rather than extending far down toward wrist. Make only minimal adjustments to gripping fingers to accommodate shorter bottle. Preserve Gruk's expression, eyes, tusks, hair, posture, other raised finger and cork, apron, towel, colours, lighting and composition exactly. Preserve drinking angle and recognisable product design. Transparent alpha background, no new objects, no text, full image.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "568520fca505e2ae9844c570b1d1e9b5cee1b6d225d8dd4bd9dbf01770771dae",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending"
+    },
+    {
+      "path": "static/images/products/blue-thinking-juice.png",
+      "source_filename": "07-blue-thinking-juice-item-a.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Tall slender clear blue-tinted glass potion bottle with rounded shoulders and narrow neck, cork stopper, luminous sapphire blue liquid about three quarters full, small parchment tag tied with brown cord showing simple gold five-point star symbol only. Hand-sized, natural glass reflections, believable proportions.\nGenerate ONE item-only catalogue image. No character, no hands. Three-quarter view showing the complete object; boots show one matching pair. Reference, when supplied, is for consistent material rendering and art style only, do not copy its weapon into this different product.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "5bae33023c37bd5c04ecafe0f1e5b8d17470bb3c566ee64a76a7bfaae08e757f",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "01-slightly-used-war-axe-item-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/bottled-bad-idea-gruk.png",
+      "source_filename": "08-bottled-bad-idea-gruk-b.png",
+      "transparent_background": true,
+      "prompt": "Original stylised fantasy game illustration, matching Gruk's Glorious Gear. A little more realistic in anatomy and proportions than the reference: head modestly smaller relative to torso, believable hands and fingers, practical tool scale, credible cloth and armour construction. Keep appealing cartoon expressions and clear bold silhouettes; not photorealistic and not chibi. Rich detailed worn leather, brushed iron, wood grain and believable glass, restrained painterly rendering, warm soft studio light. Single square standalone asset, transparent alpha background, no scenery, no border, no pedestal, no text captions or watermark. Full subject within frame with about8% clear margin, centred, easily readable at thumbnail size. No duplicate limbs, no extra items.\nProduct identity: Slightly asymmetrical pear-shaped clear glass potion bottle with narrow neck, rough cork stopper, fizzy emerald-green liquid about two thirds full, visible tiny bubbles, crooked parchment warning tag with a simple dark exclamation triangle symbol only, brown cord. Hand-sized, believable glass and restrained green glow.\nReference1 is the EXACT product; preserve its design, materials and proportions. Reference2 is Gruk's identity and art style reference. Keep same olive-green orc, swept-back dark hair tied with red band, large ivory lower tusks, dark pointed beard, thick eyebrows, worn brown leather merchant apron with brass square buckles and patched pocket, brown leather wrist guards, cream shoulder towel with two red stripes. Slightly more realistic proportions than original mascot, expressive cartoon face. Pose: Gruk sipping the OPEN green bottle with ridiculously confident thumbs-up from free hand, eyes surprised as one tiny green fizzy bubble pops near his nose, cork held between remaining fingers. Comical good-natured expression, no injury or illness.. Show three-quarter body unless pose requires full body, complete item and both hands visible. Character with only this product, no extra props except a removed potion cork. For drinking bottle must be uncorked at lips, hand gripping neck or body naturally; preserve bottle identity despite changing angle and liquid tilt. No words.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "d056ce8b9fdc1db5c3a209379ba677f8fafae220c802df155e38b190829a682c",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "08-bottled-bad-idea-item-a.png",
+        "01-slightly-used-war-axe-gruk-a.png"
+      ]
+    },
+    {
+      "path": "static/images/products/bottled-bad-idea.png",
+      "source_filename": "08-bottled-bad-idea-item-c-upright.png",
+      "transparent_background": true,
+      "prompt": "Create a standalone catalogue illustration of ONLY THE GREEN POTION BOTTLE in the reference Gruk image, with the exact same bottle design, rotated to stand perfectly upright. Remove Gruk, hands, body and all other objects. This is the bottle he is drinking, NOT the earlier tall pear-shaped potion design. Match its compact ROUND bulbous nearly spherical belly, gently narrowing short shoulders, short straight centred neck and prominent thick flared rounded glass lip. Bottle is symmetrically upright with vertical neck and level base, not leaning or crooked. View almost straight-on, slightly from above enough to see glass lip and liquid surface. Replace the cork being held in reference into the bottle opening: same chunky warm natural cracked cork, snug realistic fit. Preserve the thick clear slightly irregular glass, warm reflections, emerald/lime-green fizzy liquid about two-thirds full with horizontal liquid surface, many small bubbles and a delicate foam ring. Preserve several wraps of twisted dark brown leather cord around neck, tied to a rough tan parchment tag with metal eyelet and black outlined WARNING TRIANGLE containing exclamation mark. Tag hangs naturally at front-left side of neck, facing viewer, not obscuring most of liquid; same simple symbol, no words. Bottle silhouette must look like the round bottle Gruk holds when returned upright, NOT elongated, not asymmetrical teardrop, no bent neck. Match detailed stylised fantasy illustration finish, believable glass and cork materials, slightly realistic proportions and warm studio light. Single complete object centred with generous10 percent transparent margin, actual transparent alpha background, no backdrop, no ground plane, no border, no typography, no Gruk or hands.",
+      "size_px": [
+        1254,
+        1254
+      ],
+      "sha256": "cca6df16c97bd0ff064af99a1832c1f8829bb9061f5e0dbc85529052338f195a",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution; transparent and opaque alpha values verified",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "08-bottled-bad-idea-gruk-b.png"
+      ]
+    },
+    {
+      "path": "static/images/shop-interior.png",
+      "source_filename": "exec-16edf982-3e7d-40e4-8ae6-6b786c153d22.png",
+      "transparent_background": false,
+      "prompt": "Generate a reusable WEBSITE SHOP INTERIOR BACKGROUND ONLY for Gruk's Glorious Gear, using attached mockup ONLY for palette/art style and immersive behind-the-counter perspective. NOT a webpage or mockup. Wide panoramic3:1 composition, ideally1536x512. Option A: warm disorganised fantasy weapons-and-potions shop, uneven dark oak wall shelves crowded with mismatched ruby-red sapphire-blue emerald-green and purple corked potion bottles, a few unlabeled jars, stacked wooden boxes, rolled leather straps, dusty books, one dented round shield hanging crookedly and two axes propped haphazardly near side shelves. A warm amber lantern hangs slightly left of centre. Believable jumbled placement, not neatly arranged rows, clearly both weapons and potions for sale. Rustic timber walls, old iron brackets, slightly realistic proportions and detailed painterly cartoon fantasy materials matching reference. Customer eye-level view looking behind shop counter, shallow room depth. Use restrained warm browns, olive shadows, small jewel-colour bottle accents. Mild depth-of-field softness, softly lit and lower contrast as a background, enough definition to recognise shop contents. Keep left third quieter/darker for separately overlaid title and lower-right relatively low contrast for separately overlaid Gruk; still natural populated room, no artificial blank rectangle. Fill whole image edge-to-edge with interior. NO people or Gruk, no parchment placard, no speech bubbles, no words/signage, no navigation, no product cards, no UI, no thick frame, no foreground counter (added separately in website). Opaque background.",
+      "size_px": [
+        2172,
+        724
+      ],
+      "sha256": "f1eaa59d05e1817050cfb79f6acae3b87e78ab34e854debb33ac1711e4640ba4",
+      "validation": "Selected by Keenan; PNG decoded successfully and copied byte-for-byte at original resolution",
+      "note": "Source artwork; website placement and final display-size checks pending",
+      "generation_reference_filenames": [
+        "lab8-shop-mockup.png"
+      ]
     }
   ]
 }
