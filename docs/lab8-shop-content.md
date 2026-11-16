@@ -12,7 +12,8 @@ The shop name and elf-ear currency are agreed decisions. The character details, 
 | Tagline | Sharp axes. Strong potions. No refunds. |
 | Welcome heading | Gear up with Gruk |
 | Welcome text | War axes, sturdy armour and potions of mostly known origin. Browse Gruk's finest supplies before your next questionable adventure. |
-| Currency note | All prices in elf ears |
+| Wooden sign | ELF EARS ONLY, followed by the bloody purple ear icon |
+| Default speech bubble | Gruk is all ears, financially speaking. |
 | Main button | Browse Gear |
 | Footer line | Gruk's Glorious Gear. Proudly counting ears since breakfast. |
 
@@ -30,7 +31,7 @@ Use an original cartoon orc design with the chunky shapes and exaggerated equipm
 - Refers to himself as Gruk rather than using I.
 - Confident about equipment, less certain about potion ingredients.
 - Jokes about his stock and salesmanship more often than the customer.
-- One short quote per page or event is enough.
+- Show one short quote at a time. The shop welcome bubble rotates through quotes; other page and event quotes stay fixed.
 - Navigation, form labels and error explanations use ordinary clear English.
 - Product descriptions are flavour text, not promises of game mechanics.
 
@@ -49,6 +50,12 @@ Eight proposed products across three categories. Prices are per item in elf ears
 | Blue Thinking Juice | Potions | 15 | A blue potion favoured by spellcasters. Gruk tried some once. Had two thoughts. Did not enjoy it. |
 | Bottled Bad Idea | Potions | 12 | A fizzy green potion with a crooked warning label. For adventurers who believe reading instructions ruins the surprise. |
 
+### Past Stock and Sample Orders
+
+The storefront starts with the eight products above. The other 21 supplied product records will become past fantasy stock so existing order history also fits Gruk's shop. They need simple themed names and descriptions, not another set of generated images or product cards. Keep their original IDs and order relationships.
+
+The supplied demonstration orders will receive whole-number elf-ear unit prices and matching recalculated totals during the initial theme conversion. Keep dates, customers, ordered quantities and inventory quantities unchanged so the Lab 8 shipment examples still work. Later purchases retain their saved prices. The setup module will hold the final mapping and values; see [Catalogue and Reset Behaviour](lab8-design-decisions.md#catalogue-and-reset-behaviour).
+
 ### Category introductions
 
 | Category | Short introduction |
@@ -59,11 +66,11 @@ Eight proposed products across three categories. Prices are per item in elf ears
 
 ## Page and Event Quotes
 
-These are fixed lines for the relevant page or event. They do not require a random quote system or an interactive character.
+These are fixed lines for the relevant page or event. The shop welcome line appears first before the speech bubble begins its shuffled quote cycle, as described in [Lab 8 Design Decisions](lab8-design-decisions.md#gruks-shop-speech-bubble). Other page and event lines stay fixed.
 
 | Location or event | Gruk's line |
 |---|---|
-| Shop welcome | You bring ears. Gruk brings gear. Good arrangement. |
+| Shop welcome | Gruk is all ears, financially speaking. |
 | Product details | Gruk would use this himself. But Gruk would rather sell it. |
 | Empty cart | Nothing? You fighting dragon with manners? |
 | Cart with items | Good pile. Could be bigger pile. |
@@ -80,9 +87,9 @@ These are fixed lines for the relevant page or event. They do not require a rand
 
 ### Spare lines
 
-Keep these available for later copy changes without adding more UI elements now.
+Use these as the initial shop speech-bubble pool after the default welcome quote. Keep them in one frontend quote list when implemented.
 
-- "Gruk is all ears. Financially speaking."
+- "You bring ears. Gruk brings gear. Good arrangement."
 - "Browse all you want. Touch cursed shelf at own risk."
 - "That dent? Premium dent."
 - "Sharp end goes away from customer. Usually."
@@ -110,7 +117,7 @@ Placeholders represent values supplied by the application. Only display success 
 
 ## Currency and Labels
 
-- Write `1 elf ear` and `25 elf ears` rather than using a dollar sign.
+- Display each price as a number followed by the bloody purple ear icon in a 32 px box. Use `elf ear` or `elf ears` in accessible labels and plain-text fallbacks rather than a dollar sign.
 - Use whole-number prices for the themed catalogue. Preserve accurate decimal values if existing data contains fractions; do not silently round stored order amounts for the theme.
 - Use `Price`, `Quantity` and `Total` as the standard shopping labels.
 - Keep `Shop`, `Cart`, `Checkout`, `My Account`, `Sales Report`, `Login` and `Logout` easy to identify.
@@ -132,9 +139,9 @@ Use the same simple cartoon style for all products: chunky outlines, readable si
 | Suspicious Red Potion | Round red bottle with a cork and a simple health symbol |
 | Blue Thinking Juice | Tall blue bottle with a small star symbol |
 | Bottled Bad Idea | Uneven green bottle with bubbles and a warning symbol |
-| Optional currency icon | A simple pointed cartoon ear without graphic detail |
+| Currency icon | Purple pointed cartoon ear with crimson blood, readable at 32 px; use a larger version on the wooden sign |
 
-Start with one image per product and one Gruk illustration. Reuse assets where needed to demonstrate URL-based and database-backed image display; those two storage methods do not require separate artwork. Filenames, storage choices and any image-source credits can be recorded here when assets are created or selected.
+The selected artwork provides two images per product: a standalone item for URL-based display and a smaller Gruk demonstration for database-backed display. The welcome scene uses its own static Gruk illustration. The two storage methods do not require different artwork, but the selected pair makes the product page more useful and playful.
 
 ## Maintaining the Content
 
@@ -145,8 +152,12 @@ Start with one image per product and one Gruk illustration. Reuse assets where n
 | Gruk | `static/images/gruk.png` | Transparent character illustration for the welcome banner |
 | Wood texture | `static/images/wood-background.png` | Warm dark timber background for the page and navigation |
 | Parchment texture | `static/images/parchment-background.png` | Light background for content panels and product cards |
+| Clean elf ear | `static/images/elf-ear.png` | Transparent source variant without blood |
+| Bloody elf ear | `static/images/elf-ear-bloody.png` | Currency icon beside prices and on the wooden sign |
+| Shop interior | `static/images/shop-interior.png` | Cluttered weapons-and-potions background behind the welcome Gruk |
+| Eight product pairs | `static/images/products/` | Full-resolution selected item sources and matching `-gruk` demonstration images |
 
-These assets were generated with OpenAI's built-in image generation tool using the selected mockup A as the reference. Exact prompts are recorded in [Lab 8 Asset Prompts](lab8-asset-prompts.json), with credits in [Provenance](PROVENANCE.md). Product artwork has not yet been generated. Texture repetition and final sizing will be checked when the assets are used in the page layout.
+These assets were generated with OpenAI's built-in image generation tool using the selected visual references. Retained prompts and summaries of earlier edits are recorded in [Lab 8 Asset Prompts](lab8-asset-prompts.json), with a general credit in [Provenance](PROVENANCE.md). The eight product pairs and shop interior have been selected and imported. Texture repetition, final sizing and composition will be checked when the assets are used in the page layout. Earlier image directions above are creative drafts; the selected source images take precedence for visual details.
 
 This file holds the creative draft, reusable quotes and image notes. When the catalogue is implemented, the database setup script becomes the source of truth for active product names, descriptions and prices. Record its path here at that point and keep unused ideas in this document.
 
