@@ -1,0 +1,21 @@
+{
+  "tool": "OpenAI built-in image_gen",
+  "reference": "images/mockups/lab8-shop-mockup.png",
+  "assets": [
+    {
+      "path": "static/images/gruk.png",
+      "transparent_background": true,
+      "prompt": "Use case: identity-preserve / background-extraction. Create a standalone reusable website character asset from the supplied Gruk's Glorious Gear mockup A. The mockup is the visual reference and the orc on the right is the target character. Preserve this exact Gruk identity: broad olive-green muscular cartoon orc merchant, swept back dark hair, pointed ears, small tusks, toothy warm mischievous grin, dark pointed beard, brown leather apron with brass buckles and stitched pocket, leather wrist guards, cream cloth with red stripes over his left shoulder (viewer right). Preserve the relaxed pose resting his chin against his right fist (viewer left), leaning on his right elbow. Isolate and redraw cleanly at high resolution: head, both shoulders, arms, torso and apron down to waist; whole silhouette inside the canvas, with padding around hair, ears, arms and shoulders. Pose should align naturally behind a future horizontal counter, but OMIT the counter itself. Match the chunky painterly World of Warcraft-inspired art and warm lighting exactly. Genuine transparent alpha background, not a painted checkerboard. No shelves, scenery, words, speech bubbles, logo, UI, props, border or background shadow. One character only. Landscape roughly 4:3 composition, tightly framed but no cropped silhouette except natural waist cutoff."
+    },
+    {
+      "path": "static/images/wood-background.png",
+      "transparent_background": false,
+      "prompt": "Use case: stylized-concept. Asset type: reusable website background texture. Using the supplied mockup A solely as a style and material reference, create a square flat front-facing seamless repeating dark walnut timber texture that matches the warm wood of its navigation and outer frame. A few broad horizontal planks with subtle grain, softly hand-painted chunky fantasy game style, rich dark brown and restrained amber highlights, low contrast so light HTML text can remain legible. Uniform lighting across the tile, no light hotspot. Texture fills the whole square to all edges and is intended to tile in both directions with matching opposite edges. No perspective, bevelled outside frame, sign shape, trim, nails, metal fittings, objects, character, typography, symbols, watermark or transparent border. This image is only the wood material, not a website screenshot. Flat uniform scale and understated detail."
+    },
+    {
+      "path": "static/images/parchment-background.png",
+      "transparent_background": false,
+      "prompt": "Use case: stylized-concept. Asset type: reusable website content-panel texture. Using supplied mockup A only as a style and material reference, create a square flat seamless warm cream parchment texture matching its pale product-card backgrounds. Very subtle hand-painted paper fibres, tiny irregularities and faint warm tan mottling, light and even across the full image so dark HTML text stays highly readable. Restrained fantasy-game parchment, not photorealistic grunge. Fills entire square edge to edge; intended to tile in both directions with matching opposite edges. No dark edges, vignette, outline, tears, burnt corners, rolled scroll, border, folds, creases, writing, text, objects, character, symbols or shadows. This is plain material texture only, not a card, not a UI screenshot. Nearly uniform pale cream field with fine quiet surface detail."
+    }
+  ]
+}

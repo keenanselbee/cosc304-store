@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="utf-8"><title>YOUR NAME Grocery Main Page</title></head>
+<head><meta charset="utf-8"><title>Gruk's Glorious Gear</title></head>
 <body>
-<h1 style="text-align:center">Welcome to YOUR NAME Grocery</h1>
+<h1 style="text-align:center">Welcome to Gruk's Glorious Gear</h1>
 <h2 style="text-align:center"><a href="/listprod">Begin Shopping</a></h2>
 <h2 style="text-align:center"><a href="/listorder">List All Orders</a></h2>
+
+{% if user_name %}
+<h3 style="text-align:center">Signed in as: {{ user_name }}</h3>
+<h2 style="text-align:center"><a href="/logout">Log Out</a></h2>
+{% else %}
+<h2 style="text-align:center"><a href="/login">Log In</a></h2>
+{% endif %}
+
+<h2 style="text-align:center"><a href="/customer">Customer Information</a></h2>
+<h2 style="text-align:center"><a href="/admin">Administrator Report</a></h2>
+<h3 style="text-align:center">Shipment Tests</h3>
+<p style="text-align:center"><a href="/ship?orderId=1">Process order 1</a> |
+   <a href="/ship?orderId=3">Process order 3</a></p>
+<p style="text-align:center"><small>Shipment processing changes inventory once implemented.
+Use the sample database for these tests.</small></p>
 </body>
 </html>

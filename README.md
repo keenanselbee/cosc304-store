@@ -33,6 +33,15 @@ docker compose up -d --build
 | Order list | http://localhost/listorder |
 | Shopping cart | http://localhost/showcart |
 | Checkout | http://localhost/checkout |
+| Product details (TODO) | http://localhost/product?id=1 |
+| Login form | http://localhost/login |
+| Logout | http://localhost/logout |
+| Customer information (TODO) | http://localhost/customer |
+| Daily sales report (TODO) | http://localhost/admin |
+| Database image (TODO) | http://localhost/displayImage?id=1 |
+| Shipment (TODO) | http://localhost/ship?orderId=1 |
+
+The [Lab 8 starter add-on](docs/README_Lab8_Python.md) is integrated. Its feature TODOs remain unfinished, and login intentionally fails until credential validation is implemented. Existing Lab 7 shopping features remain available. The database has not been reset for this integration.
 
 **Useful commands:**
 
