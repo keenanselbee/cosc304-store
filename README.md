@@ -62,6 +62,27 @@ Base URL: `http://localhost`. GET routes can be opened in the browser; POST rout
 | GET | `/loaddata` | Check the database connection and show the reset form |
 | POST | `/loaddata` | Delete current store data and restore the themed sample data |
 
+**Database tables:**
+
+The `orders` database contains 11 tables. Key columns are listed below; see the
+[full schema](ddl/SQLServer_orderdb.ddl) for all columns, types and constraints.
+
+| Table | Purpose | Key columns |
+| --- | --- | --- |
+| `category` | Product categories | `categoryId`, `categoryName` |
+| `customer` | Customer accounts and contact details | `customerId`, `userid`, `password`, `firstName`, `lastName`, `email` |
+| `product` | Product details, prices and images | `productId`, `categoryId`, `productName`, `productPrice`, `productDesc`, `productImageURL`, `productImage` |
+| `ordersummary` | One record per order | `orderId`, `customerId`, `orderDate`, `totalAmount` |
+| `orderproduct` | Items and saved unit prices within an order | `orderId`, `productId`, `quantity`, `price` |
+| `productinventory` | Product stock at each warehouse | `productId`, `warehouseId`, `quantity`, `price` |
+| `warehouse` | Warehouse details | `warehouseId`, `warehouseName` |
+| `shipment` | Shipment records | `shipmentId`, `warehouseId`, `shipmentDate`, `shipmentDesc` |
+| `paymentmethod` | Customer payment methods | `paymentMethodId`, `customerId`, `paymentType`, `paymentNumber`, `paymentExpiryDate` |
+| `review` | Customer product reviews | `reviewId`, `customerId`, `productId`, `reviewRating`, `reviewComment` |
+| `incart` | Cart entries in the supplied schema | `orderId`, `productId`, `quantity`, `price` |
+
+The current shopping cart uses the Flask session rather than `incart`.
+
 **Tests:** With both Docker services running and the lab database loaded, run:
 
 ```powershell
