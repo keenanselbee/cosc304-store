@@ -30,7 +30,7 @@ def product_details():
         cursor = connection.cursor()
         query = """SELECT p.productId, p.productName, p.productPrice, p.productDesc,
                         p.productImageURL, p.productImage, c.categoryName
-                    FROM product p LEFT JOIN category c ON p.categoryId = c.categoryId
+                    FROM product p JOIN category c ON p.categoryId = c.categoryId
                     WHERE p.productId = ?"""
         cursor.execute(query, [product_id])
         product = cursor.fetchone()

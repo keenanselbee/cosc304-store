@@ -29,6 +29,7 @@ def admin_report():
         cursor.execute(query)
 
         rows = []
+        # turn each result into a table
         for row in cursor:
             sales_date, total = row
             rows.append(f"<tr><td>{escape_html(sales_date)}</td>"
