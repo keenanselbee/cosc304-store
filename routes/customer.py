@@ -10,7 +10,7 @@ bp = Blueprint("customer", __name__)
 
 @bp.get("/customer")
 def customer_information():
-    redirect_response = require_login()
+    redirect_response = require_login() # logged in returns None
     if redirect_response is not None:
         return redirect_response
 
@@ -19,7 +19,7 @@ def customer_information():
     # get the logged in customer
     connection = None
     cursor = None
-    navigation = '<p><a href="/">Main Page</a></p>'
+    navigation = '<p><a href="/">Back to Shop</a></p>'
     try:
         connection = get_connection()
         cursor = connection.cursor()
@@ -31,8 +31,7 @@ def customer_information():
         customer = cursor.fetchone()
 
         if customer is None:
-            return html_page("Customer Information",
-                             "<p>Customer info not found</p>" + navigation), 404
+            return html_page("Customer Information", "<p>Customer info not found</p>" + navigation), 404
 
         labels = ["Customer ID", "First name", "Last name", "Email", "Phone",
                   "Address", "City", "State or province", "Postal code", "Country", "User ID"]

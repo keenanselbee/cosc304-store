@@ -14,8 +14,7 @@ def product_details():
     # --------------------------------
 
     shopping_link = url_for("listprod.list_products")
-    navigation = (f'<p><a href="{escape_html(shopping_link)}">Continue Shopping</a> | '
-                  f'<a href="{escape_html(url_for("index"))}">Main Page</a></p>')
+    navigation = (f'<p><a href="{escape_html(shopping_link)}">Continue Shopping</a></p>')
 
     try:
         product_id = int(product_id_text)

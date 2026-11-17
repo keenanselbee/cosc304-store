@@ -11,14 +11,13 @@ bp = Blueprint("admin", __name__)
 @bp.get("/admin")
 def admin_report():
     # --------------------------------
-    # check login before loading sales
-    redirect_response = require_login()
+    redirect_response = require_login() # logged in returns None
     if redirect_response is not None:
         return redirect_response
 
     connection = None
     cursor = None
-    navigation = '<p><a href="/">Main Page</a></p>'
+    navigation = '<p><a href="/">Back to Shop</a></p>'
     try:
         connection = get_connection()
         cursor = connection.cursor()
@@ -29,7 +28,7 @@ def admin_report():
         cursor.execute(query)
 
         rows = []
-        # turn each result into a table
+        # turn each result into a row
         for row in cursor:
             sales_date, total = row
             rows.append(f"<tr><td>{escape_html(sales_date)}</td>"

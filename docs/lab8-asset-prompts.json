@@ -351,6 +351,55 @@
       "generation_reference_filenames": [
         "lab8-shop-mockup.png"
       ]
+    },
+    {
+      "path": "static/images/hanging-sign-engraved.png",
+      "source_filename": "exec-b03a41a4-c433-4a71-9a53-74172caf231d.png",
+      "transparent_background": true,
+      "prompt": "Use case: precise-object-edit. Create a replacement transparent fantasy shop hanging sign from reference 1 (the wooden board and chains). Reference 2 is the ear symbol to carve into the board. Output ONLY a single complete sign including its two hanging chains, no wall, no scenery, no header, no character. Wide horizontal format approximately 4:1 overall. Warm orange-brown worn timber, rough chipped bevelled edges, three horizontal planks and four dark iron corner rivets, same rich painterly semi-realistic fantasy game art as reference 1. Make wooden face a little taller than the original website sign, with comfortable space above/below lettering. Two moderately short iron chains attached near the left and right ends: 3 clearly visible interlocking links above the board, a little longer than a single-link suspension, ending at the top image edge. Exact inscription in one line: ELF EARS ONLY. Bold readable uppercase serif letters deeply carved INTO the wood, recessed dark inner bevel and light lower bevel, filled with weathered warm gold/ochre pigment so legible at 600px display width. To the RIGHT of the text carve the pointed purple elf ear emblem from reference 2, including dark red accents at its base, as a recessed painted wood carving visibly part of the timber, NOT a floating sticker or separate fleshy ear. Vertically center text and ear on wooden board itself (excluding chains). Preserve ear silhouette at a generous size, roughly height of the text or slightly taller. Balanced small side margins, lettering takes most of width, ear fits fully within board. Keep colours clear but weathered; avoid luminous bright yellow flat digital type. Transparent alpha background outside board and chains, no margins beyond tiny clear edging. Straight front-on view, no perspective skew. No extra words or symbols.",
+      "revision_prompt": "Precise revision of supplied sign. Preserve all board geometry, chains, composition, exact ELF EARS ONLY lettering layout, colors and purple/red ear shape. Change ONLY the lettering and ear rendering: they must be INCISED ENGRAVINGS recessed below the wood surface, not raised relief, not separate attached gold metal letters or glued-on ear. Cut V-grooves into the wood to define each letter, with shadows on inner upper edges and highlights along lower inside edges, thin weathered ochre-gold stain within the recesses. Same for ear: shallow carved cavity with muted purple and burgundy paint inside, visible wood grain through paint. Keep readable at website sign size, warm fantasy illustration, transparent background. No exterior drop shadows around individual letters or ear; their depth goes into the board. Retain full sign and chains.",
+      "generation_reference_filenames": [
+        "hanging-sign.png",
+        "elf-ear-bloody.png",
+        "exec-0be35bb2-c0c1-419b-85a6-71b5c4d58850.png"
+      ],
+      "validation": "Generated PNG inspected for exact lettering, recessed carving and ear symbol; shared shop header inspected at 1800px; accessible text label retained",
+      "note": "User requested carved artwork including text and ear instead of separate HTML overlays; original blank sign retained",
+      "size_px": [
+        2172,
+        724
+      ],
+      "sha256": "886f577f64e361949ff7f2b67b1f517785cadf49cb3ba3e1f35b3bcae0373201"
+    },
+    {
+      "path": "static/images/hanging-sign-gold.png",
+      "source_filename": "exec-eaf713fe-6508-4493-9040-0dbd4e7b9802.png",
+      "transparent_background": true,
+      "prompt": "Use case: precise-object-edit. Input1 is the existing engraved sign to improve. Input2 is a shop mockup: use ONLY its top-left ELF EARS ONLY sign as the target for proportions and readability; do not recreate the website. Output a single transparent hanging wooden sign. The existing engraving is far too dark and lettering too small. Make a long SLIM board like the mockup, about SEVEN times as wide as the wooden face is tall, with two short iron chains above it (2-3 visible links). Four corner rivets and restrained chipped timber edges. Dark warm reddish brown wood, distinct from background. Exact text ELF EARS ONLY in ONE LINE, HUGE bold gold serif capitals, tall substantial letters filling 65-70 percent of board height with modest even top/bottom padding. Text and purple ear occupy almost all the face between rivets, not a tiny inscription amid lots of wood. BRIGHT GOLD PIGMENT filling shallow carved letter recesses, very high contrast like mockup. Gold letter faces must be light rich yellow, not brown, with modest recessed dark bevel to imply cut into wood. Readability takes priority over subtle engraving. On right, purple elf ear emblem carved and painted vivid lavender with a small burgundy base, tall like mockup, clear at thumbnail size. No separate floating ear. Match mockup sign silhouette, text scale and narrow proportions closely. Straight front-on, no perspective skew. Full two chains visible above the board, chain height about one third of board height. Transparent outside the sign and chains. Wide panoramic composition, no website, no other text, no extra objects. Keep painterly fantasy wood texture but reduce excessive surface noise behind letters.",
+      "generation_reference_filenames": [
+        "hanging-sign-engraved.png",
+        "lab8-shop-mockup.png"
+      ],
+      "validation": "Exact sign wording and brighter gold letters visually checked at website display size; transparent PNG inspected; shared header checked on shop and inner pages",
+      "note": "Replaces the low-contrast engraved sign in the shared header; proportions and large lettering follow the selected shop mockup",
+      "size_px": [
+        2172,
+        724
+      ],
+      "sha256": "0b501019f7bfaf4131e4a67e85e416a87ac3ee62e807f23ff91df158306e96ba"
+    },
+    {
+      "path": "static/images/hanging-sign-lettered.png",
+      "source_filename": "exec-0be35bb2-c0c1-419b-85a6-71b5c4d58850.png",
+      "transparent_background": true,
+      "prompt": "Use case: precise-object-edit. Create a replacement transparent fantasy shop hanging sign from reference 1 (the wooden board and chains). Reference 2 is the ear symbol to carve into the board. Output ONLY a single complete sign including its two hanging chains, no wall, no scenery, no header, no character. Wide horizontal format approximately 4:1 overall. Warm orange-brown worn timber, rough chipped bevelled edges, three horizontal planks and four dark iron corner rivets, same rich painterly semi-realistic fantasy game art as reference 1. Make wooden face a little taller than the original website sign, with comfortable space above/below lettering. Two moderately short iron chains attached near the left and right ends: 3 clearly visible interlocking links above the board, a little longer than a single-link suspension, ending at the top image edge. Exact inscription in one line: ELF EARS ONLY. Bold readable uppercase serif letters deeply carved INTO the wood, recessed dark inner bevel and light lower bevel, filled with weathered warm gold/ochre pigment so legible at 600px display width. To the RIGHT of the text carve the pointed purple elf ear emblem from reference 2, including dark red accents at its base, as a recessed painted wood carving visibly part of the timber, NOT a floating sticker or separate fleshy ear. Vertically center text and ear on wooden board itself (excluding chains). Preserve ear silhouette at a generous size, roughly height of the text or slightly taller. Balanced small side margins, lettering takes most of width, ear fits fully within board. Keep colours clear but weathered; avoid luminous bright yellow flat digital type. Transparent alpha background outside board and chains, no margins beyond tiny clear edging. Straight front-on view, no perspective skew. No extra words or symbols.",
+      "size_px": [
+        2172,
+        724
+      ],
+      "sha256": "7472f1bf787156e736713e74815ba251a0e19dfa8f01f2bf6d3be829929ff2ca",
+      "validation": "User selected this earlier generated variant; copied byte-for-byte; visually checked in shared shop header at 1800px",
+      "note": "Current header sign. CSS shows a short chain section and sizes the wooden face to fill most of the header height with a small overhang; source PNG remains intact"
     }
   ]
 }

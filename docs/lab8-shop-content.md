@@ -9,6 +9,7 @@ The shop identity, catalogue, product subtext and speech-bubble pool below are i
 | Element | Copy |
 |---|---|
 | Shop name | Gruk's Glorious Gear |
+| Shopkeeper | Gruk Bargaintusk |
 | Tagline | Sharp axes. Strong potions. No refunds. |
 | Welcome heading | Gruk's Glorious Gear |
 | Wooden sign | ELF EARS ONLY, followed by the bloody purple ear icon |

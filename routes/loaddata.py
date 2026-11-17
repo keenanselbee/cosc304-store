@@ -40,7 +40,7 @@ def render_status(message="", counts=None):
         <form method="post" action="/loaddata"
           onsubmit="return confirm('Reset database and delete existing data?');">
           <input type="submit" value="Reset Database"></form>
-        <p><a href="/">Return to Store</a></p>""")
+        <p><a href="/">Back to Shop</a></p>""")
 
 
 @bp.get("/loaddata")

@@ -13,7 +13,7 @@ def ship_order():
 
     # --------------------------------
     # check the order id
-    navigation = '<p><a href="/">Main Page</a></p>'
+    navigation = '<p><a href="/">Back to Shop</a></p>'
     try:
         order_id = int(raw_order_id)
         if order_id <= 0 or order_id > 2147483647:
@@ -53,11 +53,19 @@ def ship_order():
             if cursor.rowcount != 1:
                 raise ValueError(f"Not enough stock for product {product_id} in warehouse 1")
 
-            rows.append(f"<tr><td>{product_id}</td><td>{quantity}</td></tr>")
+            # show the stock before and after this shipment
+            query = """SELECT quantity FROM productinventory
+                       WHERE productId = ? AND warehouseId = 1"""
+            cursor.execute(query, [product_id])
+            new_inventory = cursor.fetchone()[0]
+            previous_inventory = new_inventory + quantity
+            rows.append(f"<tr><td>{product_id}</td><td>{quantity}</td>"
+                        f"<td>{previous_inventory}</td><td>{new_inventory}</td></tr>")
 
         output = (f"<h1>Order {order_id} shipped</h1>"
                   f"<p>Shipment {shipment_id} from warehouse 1</p>"
-                  '<table border="1"><tr><th>Product ID</th><th>Quantity shipped</th></tr>'
+                  '<table border="1"><tr><th>Product ID</th><th>Quantity shipped</th>'
+                  '<th>Previous inventory</th><th>New inventory</th></tr>'
                   + "".join(rows) + "</table>" + navigation)
         connection.commit()
         return html_page("Shipment Processing", output)

@@ -189,7 +189,7 @@ def apply_theme(database="orders"):
         cursor.execute("""UPDATE customer SET firstName = ?, lastName = ?, email = ?, phonenum = ?,
                           address = ?, city = ?, state = ?, postalCode = ?, country = ?,
                           userid = ?, password = ? WHERE customerId = 1""",
-                       ["Gruk", "Gear", "gruk@example.com", "555-0108", "8 Anvil Lane",
+                       ["Gruk", "Bargaintusk", "gruk@example.com", "555-0108", "8 Anvil Lane",
                         "Stonefang", "Ironlands", "GG8 001", "Orc Territories", "gruk", "axe"])
         if cursor.rowcount != 1:
             raise ValueError("Sample customer 1 is missing; account change stopped")

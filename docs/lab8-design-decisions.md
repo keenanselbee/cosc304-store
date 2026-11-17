@@ -16,9 +16,9 @@ Build on the existing Python store with the required Lab 8 features and a simple
 - **Mockup A (Timber Shop) is the selected visual direction:** [shop mockup](../images/mockups/lab8-shop-mockup.png). Keep this reference in `images/mockups`.
 - Use a simple layout with dark brown backgrounds, readable parchment-coloured panels, and green and gold accents.
 - Reuse `static/images/timber-post.png` and `static/images/counter-plank.png` for rough wooden framing and the shop counter. Keep their source PNGs intact and fit them with CSS; keep text and controls in HTML.
-- Turn the post artwork sideways for the shop bottom rail and both horizontal rails on inner-page panels. Use `header-slab.png` for the broad navigation slab and `hanging-sign.png` for the brighter sign with short visible chains; centre the HTML lettering on the board and spread navigation links across the remaining header width. Extend the shop posts underneath the header.
+- Turn the post artwork sideways for the shop bottom rail and both horizontal rails on inner-page panels. Use `header-slab.png` for the broad navigation slab and `hanging-sign-lettered.png` for the sign, with the wooden face filling most of the header height, short visible chains and a slight overhang. The sign artwork includes large bright gold lettering with carved detailing and the purple ear emblem, with an accessible HTML link label. Spread navigation links across the remaining header width. Extend the shop posts underneath the header.
 - Keep Gruk's displayed size stable. Place his full image behind the counter and a clipped copy of only his elbow and hand in front, so the lower apron stays behind the wood. Both layers reuse the original PNG.
-- The top wooden sign reads **ELF EARS ONLY** beside the bloody purple ear icon. Keep the shop name in the main welcome banner.
+- The top wooden sign reads **ELF EARS ONLY** beside the bloody purple ear icon. Keep the shop name in the main welcome banner. The sign uses carved, coloured lettering and an ear emblem as part of the wood artwork.
 - Gruk's default speech bubble reads **Gruk is all ears, financially speaking.**
 - Keep one shared stylesheet and reuse the existing page-generation approach with a small shared header/menu where practical. Avoid a new frontend framework or a broad rewrite.
 - Use the static welcome Gruk and the selected pair of images for each themed product: one item-only image and one Gruk demonstration image.
@@ -78,7 +78,7 @@ Build on the existing Python store with the required Lab 8 features and a simple
 
 ## Login Customer Information and Sales
 
-- Use sample customer 1 as the complete demo profile: Gruk Gear, username `gruk`, password `axe`, with fictional shop contact details. Preserve customer ID 1 and its order relationships. Theme setup restores this after a reset and only removes the earlier separate Gruk account if it has no orders, payment methods or reviews.
+- Use sample customer 1 as the complete demo profile: Gruk Bargaintusk, username `gruk`, password `axe`, with fictional shop contact details. Preserve customer ID 1 and its order relationships. Theme setup restores this after a reset and only removes the earlier separate Gruk account if it has no orders, payment methods or reviews.
 
 - Validate the submitted user ID and password against the lab database using a parameterized query. Store the authenticated identity in the session and clear it on logout.
 - Check login on the server before showing protected pages. Hiding a menu link is not an access check.
@@ -121,7 +121,7 @@ Review frontend changes against the committed backend baseline. Do not commit, m
 - Use one `static/css/shop.css` and one small `static/js/gruk.js`. Keep colours, spacing, typography and widths shared. Start with roughly 40 px outer wood margins on desktop.
 - Keep the header consistent: ELF EARS ONLY sign, Shop, Cart, Orders, My Account, Admin and Login/Logout. Show the signed-in identity. Admin links to the existing sales report; it does not imply a new role system.
 - Have `/` reuse the shop listing renderer so the landing page and `/listprod` use the same product query, controls and layout. Preserve `/listprod` and its `productName` parameter for existing links and tests.
-- Keep all headings, buttons, prices and bubble text as HTML. Use the selected generated wood and parchment artwork for the sign, counter edge and panels, fitted with CSS and the shared SVG rail. Use local/system fonts and no additional frontend framework.
+- Keep all headings, buttons, prices and bubble text as HTML. The fixed ELF EARS ONLY sign is the artwork exception, with its meaning retained in the accessible link label. Use the selected generated wood and parchment artwork for the sign, counter edge and panels, fitted with CSS and the shared SVG rail. Use local/system fonts and no additional frontend framework.
 - Preserve full-resolution source PNGs. If needed, create smaller display copies under `static/images/web/`, record their source relationship in the asset log, and use the smaller files in pages and database image data. Preserve transparency and aspect ratio; use contained product images with reserved dimensions.
 - Keep numeric money calculations unchanged. Format whole amounts without `.00` for themed display and retain two decimals for fractional amounts. Add the 32 px ear icon and an accessible currency label; never round away stored fractions.
 

@@ -22,5 +22,5 @@ def login_page():
           </label></p>
           <p><button type="submit">Log In</button></p>
         </form>
-        <p><a href="/">Main Page</a></p>
+        <p><a href="/">Back to Shop</a></p>
     """)
